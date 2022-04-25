@@ -1,3 +1,34 @@
+# データベースの作成
+スキーマの作成 'laravel'推奨
+※スキーマ名は何を入力しても問題無。
+　.envファイルの”DB_DATABASE”を変更。
+
+# Dumpの実行
+
+/todo-list/db 内に格納されているSQLファイルを実行
+※順番は特に無
+
+・laravel_todos.sql
+・laravel_user.sql
+
+# パッケージのインストール
+
+cd /todo-list
+npm install
+
+# プロジェクトの起動手順
+
+1. cd /todo-list
+
+2. php artisan serve
+
+3. 別のターミナルを起動
+
+4. No.1を再度実行
+
+5. npm run dev
+※プロジェクトを修正する場合は"npm run watch"を実行
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -3,17 +3,16 @@ import axios from 'axios';
 import Todos from './dashboard/Todos';
 import Post from './dashboard/Post';
 import Update from './dashboard/Update';
+import { CATEGORY_VALUE } from '../config/categoryValues';
 
-class Example extends Component {
-  state = {
-    todos: [
-      // {id: 1, title: 'test', dead_line: new Date(), priority: 3},
-      // {id: 2, title: 'study', dead_line: new Date(), priority: 2},
-      // {id: 3, title: 'study', dead_line: null, priority: null},
-      // {id: 4, title: 'work', dead_line: new Date(), priority: 1}
-    ],
-    editMode: false,
-    targetData: []
+class Dashboard extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      todos: [],
+      editMode: false,
+      targetData: []
+    }
   }
   componentDidMount() {
     this.getTodos()
@@ -137,4 +136,4 @@ class Example extends Component {
   }
 }
 
-export default Example;
+export default Dashboard;

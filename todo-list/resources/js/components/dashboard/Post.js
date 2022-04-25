@@ -5,10 +5,13 @@ import Collapsible from 'react-collapsible';
 import "react-datepicker/dist/react-datepicker.css";
 
 class Post extends Component {
-    state = {
-        title: '',
-        dead_line: '',
-        priority: ''
+    constructor(props){
+        super(props);
+        this.state = {
+            title: '',
+            dead_line: '',
+            priority: ''
+        }
     }
     handleChange = (event) => {
         this.setState({
@@ -23,7 +26,7 @@ class Post extends Component {
                 dead_line
             })
         } else {
-            console.log("hello world");
+            console.log('過去日付は入力できません。');
         }
     }
     handlePriority = (priority) => {

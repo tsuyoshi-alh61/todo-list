@@ -31,7 +31,7 @@ const Todos = ({todos, deleteTodo, changeEditMode}) => {
                 <span>
                     <span>{customDate(dead_line, 'YYYY年MM月DD日')}</span>
                     <span>
-                        {date.getDate() - 1　=== new Date().getDate() && (
+                        {date.getDate() - 1 === new Date().getDate() && (
                             <span className="yellow-text"> : 期限が近いです！</span>
                         )}
                     </span>

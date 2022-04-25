@@ -4,11 +4,14 @@ import Select from 'react-select';
 import "react-datepicker/dist/react-datepicker.css";
 
 class Update extends Component {
-    state = {
-        id: this.props.targetData.id,
-        title: this.props.targetData.title,
-        dead_line: new Date(this.props.targetData.dead_line),
-        priority: this.props.targetData.priority
+    constructor(props){
+        super(props);
+        this.state = {
+            id: props.targetData.id,
+            title: props.targetData.title,
+            dead_line: new Date(props.targetData.dead_line),
+            priority: props.targetData.priority
+        }
     }
     handleChange = (event) => {
         this.setState({
@@ -23,7 +26,7 @@ class Update extends Component {
                 dead_line
             })
         } else {
-            console.log("hello world");
+            console.log('過去日付は入力できません。');
         }
     }
     handlePriority = (priority) => {
