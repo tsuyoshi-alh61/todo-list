@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import '../css/app.css';
-import Example from './components/Example';
+import Dashboard from './components/Dashboard';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Example />
+    <Dashboard />
   </React.StrictMode>,
   document.getElementById('root')
 );
