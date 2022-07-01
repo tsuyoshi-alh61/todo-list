@@ -1,0 +1,15 @@
+.TodoDetails {
+    &.modalContents {
+        top: 50%;
+        left: 50%;
+        width: 400px;
+        border: 2px solid rgb(0, 0, 0);
+        padding: 32px;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        background-color: rgb(255, 255, 255);
+    }
+    .buttonArea {
+        justify-content: end;
+    }
+}

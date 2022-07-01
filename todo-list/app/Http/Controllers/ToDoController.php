@@ -17,6 +17,13 @@ class ToDoController extends Controller {
 
     /**
      * 
+     */
+    public function getTodoById(Request $request) {
+        return Todo::where('id', $request->id)->orderByDesc('id')->get();
+    }
+
+    /**
+     * 
      * @param  Request $request
      * @return Illuminate\Http\JsonResponse
      */
@@ -28,7 +35,6 @@ class ToDoController extends Controller {
         $todo->save();
 
         return $todo ? response()->json($todo, 201) : response()->json([], 500);
-        // return response()->json($request, 201);
     }
 
     /**
@@ -46,8 +52,13 @@ class ToDoController extends Controller {
         return $todo ? response()->json($todo, 201) : response()->json([], 500);
     }
 
+    /**
+     * 
+     * @param  Request $request
+     * @return Illuminate\Http\JsonResponse
+     */
     public function deleteTodo(Request $request) {
-        $todo = Todo::find($request->id);
+        $todo = Todo::where('id', $request->id);
         $todo->delete();
 
         return $todo ? response()->json($todo, 201) : response()->json([], 500);

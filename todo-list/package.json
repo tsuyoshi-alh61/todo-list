@@ -26,10 +26,15 @@
     "dependencies": {
         "@material-ui/core": "^4.12.4",
         "@material-ui/icons": "^4.11.3",
+        "@material-ui/lab": "^4.0.0-alpha.61",
+        "glob": "^8.0.3",
+        "lodash": "^4.17.21",
         "react-collapsible": "^2.8.4",
+        "react-cookie": "^4.1.1",
         "react-datepicker": "^4.5.0",
-        "react-redux": "^8.0.1",
+        "react-redux": "^8.0.2",
         "react-router-dom": "^6.3.0",
-        "react-select": "^5.2.1"
+        "react-select": "^5.2.1",
+        "redux": "^4.2.0"
     }
 }

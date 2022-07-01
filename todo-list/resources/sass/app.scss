@@ -6,3 +6,13 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+@import './components/layout/Navbar.scss';
+
+@import './components/Loading.scss';
+
+@import './components/authentication/Signin.scss';
+@import './components/authentication/Signup.scss';
+
+@import './components/todos/CreateTodo.scss';
+@import './components/todos/ToDoDetails.scss';

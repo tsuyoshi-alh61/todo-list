@@ -1,5 +1,8 @@
 const mix = require('laravel-mix');
 
+// globライブラリを読み込む
+const glob = require('glob');
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management

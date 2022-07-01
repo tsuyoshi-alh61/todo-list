@@ -11286,3 +11286,53 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.buttonSpacing {
+  margin-left: 10px !important;
+}
+
+.circleContainer {
+  display: flex;
+  justify-content: center;
+  height: 400px;
+  align-items: center;
+}
+
+.signIn.mainLayout {
+  display: flex;
+  justify-content: center;
+  height: 400px;
+  align-items: center;
+  min-width: 200px;
+  width: 200px;
+  margin: auto;
+  text-align: center;
+}
+
+.signUp.mainLayout {
+  display: flex;
+  justify-content: center;
+  height: 400px;
+  align-items: center;
+  min-width: 200px;
+  width: 200px;
+  margin: auto;
+  text-align: center;
+}
+
+.createTodo .buttonArea {
+  text-align: center;
+}
+
+.TodoDetails.modalContents {
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  border: 2px solid black;
+  padding: 32px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background-color: white;
+}
+.TodoDetails .buttonArea {
+  justify-content: end;
+}

@@ -1,0 +1,11 @@
+@import '../../variables';
+
+.signUp {
+    &.mainLayout {
+        @include mainLayout();
+        min-width: 200px;
+        width: 200px;
+        margin: auto;
+        text-align: center;
+    }
+}

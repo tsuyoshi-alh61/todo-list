@@ -16,8 +16,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/todo/{id?}', function () {
+    return view('welcome');
+});
+Route::get('/signin', function () {
+    return view('welcome');
+});
+Route::get('/signup', function () {
+    return view('welcome');
+});
 
-Route::get('dbTest/{id?}', 'App\Http\Controllers\dbTestController@selectUserData');
+Route::get('/dbTest/{id?}', 'App\Http\Controllers\dbTestController@selectUserData');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
