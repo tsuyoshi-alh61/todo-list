@@ -25178,7 +25178,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 
 
-
 var useStyles = (0,_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["default"])(function () {
   return {
     root: {
@@ -25240,14 +25239,14 @@ function Navbar() {
         className: classes.root,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_common_CommonLink__WEBPACK_IMPORTED_MODULE_1__["default"], {
           to: "/",
-          content: "To-Do\u30EA\u30B9\u30C8"
+          content: 'To-Doリスト'
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_SignedInLinks__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        styles: "buttonSpacing",
+        styles: 'buttonSpacing',
         cookie: cookieState,
         setCookieState: setCookieState
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_SignedOutLinks__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        styles: "buttonSpacing",
+        styles: 'buttonSpacing',
         cookie: cookieState
       })]
     })
@@ -25297,7 +25296,7 @@ function SignedInLink(_ref) {
       setCookieState = _ref.setCookieState;
   var history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useNavigate)();
 
-  var _useCookies = (0,react_cookie__WEBPACK_IMPORTED_MODULE_4__["default"])(["name"]),
+  var _useCookies = (0,react_cookie__WEBPACK_IMPORTED_MODULE_4__["default"])(['name']),
       _useCookies2 = _slicedToArray(_useCookies, 3),
       cookies = _useCookies2[0],
       setCookie = _useCookies2[1],
@@ -25319,8 +25318,7 @@ function SignedInLink(_ref) {
           return logoutEvent();
         },
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_common_CommonLink__WEBPACK_IMPORTED_MODULE_1__["default"], {
-          to: "/",
-          content: "\u30ED\u30B0\u30A2\u30A6\u30C8"
+          content: 'ログアウト'
         })
       })
     });
@@ -25362,16 +25360,16 @@ function SignedOutLinks(_ref) {
         variant: "outlined",
         className: styles,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_common_CommonLink__WEBPACK_IMPORTED_MODULE_1__["default"], {
-          to: "/",
-          content: "\u30B5\u30A4\u30F3\u30A2\u30C3\u30D7"
+          to: "/signup",
+          content: 'サインアップ'
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
         color: "inherit",
         variant: "outlined",
         className: styles,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_common_CommonLink__WEBPACK_IMPORTED_MODULE_1__["default"], {
-          to: "/",
-          content: "\u30ED\u30B0\u30A4\u30F3"
+          to: "/signin",
+          content: 'ログイン'
         })
       })]
     });
@@ -25402,9 +25400,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function CommonLink(props) {
+  var _props$to;
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["default"], {
     component: react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link,
-    to: props.to //遷移先
+    to: (_props$to = props.to) !== null && _props$to !== void 0 ? _props$to : '' //遷移先
     ,
     style: {
       color: 'white'

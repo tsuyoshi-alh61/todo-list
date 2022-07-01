@@ -6,7 +6,7 @@ export default function CommonLink(props) {
   return (
     <Link
         component={RouterLink}
-        to={props.to} //遷移先
+        to={props.to ?? ''} //遷移先
         style={{color: 'white'}}
         underline="none"
     >

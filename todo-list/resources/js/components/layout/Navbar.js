@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -36,15 +35,15 @@ export default function Navbar() {
     }, [])
 
     return (
-        <AppBar position="static" color="primary">
+        <AppBar position='static' color='primary'>
             <Toolbar>
                 {/*  */}
-                <Typography variant="h6" component="div" className={classes.root}>
-                    <CommonLink to='/' content={`To-Doリスト`}/>
+                <Typography variant='h6' component='div' className={classes.root}>
+                    <CommonLink to='/' content={'To-Doリスト'}/>
                 </Typography>
                 {/*  */}
-                <SignedInLinks styles={`buttonSpacing`} cookie={cookieState} setCookieState={setCookieState}/>
-                <SignedOutLinks styles={`buttonSpacing`} cookie={cookieState} />
+                <SignedInLinks styles={'buttonSpacing'} cookie={cookieState} setCookieState={setCookieState}/>
+                <SignedOutLinks styles={'buttonSpacing'} cookie={cookieState} />
             </Toolbar>
         </AppBar>
     )

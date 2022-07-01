@@ -6,11 +6,11 @@ export default function SignedOutLinks({styles, cookie}) {
     if(!cookie['name']) {
         return (
             <React.Fragment>
-                <Button color="inherit" variant="outlined" className={styles}>
-                    <CommonLink to='/' content={`サインアップ`}/>
+                <Button color='inherit' variant='outlined' className={styles}>
+                    <CommonLink to='/signup' content={'サインアップ'}/>
                 </Button>
-                <Button color="inherit" variant="outlined" className={styles}>
-                    <CommonLink to='/' content={`ログイン`}/>
+                <Button color='inherit' variant='outlined' className={styles}>
+                    <CommonLink to='/signin' content={'ログイン'}/>
                 </Button>
             </React.Fragment>
         )
