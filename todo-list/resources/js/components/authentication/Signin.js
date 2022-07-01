@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { useCookies } from "react-cookie";
+import { connect } from "react-redux";
 import Box from '@material-ui/core/Box';
 import FormControl from '@material-ui/core/FormControl';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { callUserAuthentication } from "../../apiCaller/auth";
+import { createCookie } from '../../actions/authActions';
 
-export default function Signin() {
+function Signin(props) {
     const history = useNavigate();
     const [inputValues, setInputValues] = useState({
         email: '',
@@ -27,6 +29,7 @@ export default function Signin() {
         callUserAuthentication(inputValues)
         .then(res => {
             setCookie('name', res.data);
+            props.createCookie({'name': res.data});
             history('/');
         })
         .catch(e => {
@@ -69,3 +72,11 @@ export default function Signin() {
         </div>
     )
 }
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        createCookie: (cookie) => dispatch(createCookie(cookie))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Signin);

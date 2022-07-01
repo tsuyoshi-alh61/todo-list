@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { useSelector } from 'react-redux';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -27,12 +28,25 @@ function getCookie() {
 }
 
 export default function Navbar() {
+    const { auth } = useSelector(state => state);
+    const refCookie = useRef(auth.cookie);
     const [ cookieState, setCookieState ] = useState(getCookie() ?? {});
     const classes = useStyles();
 
     useEffect(() => {
-        setCookieState(getCookie() ?? {});
-    }, [])
+        refCookie.current = auth.cookie;
+    }, [auth.cookie]);
+
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            // redux storeのデータを使って何かする処理
+            // refUsers.currentを参照させる
+            setCookieState(auth.cookie);
+        }, 5000);
+        return function () {
+          clearInterval(intervalId);
+        };
+    }, []);
 
     return (
         <AppBar position='static' color='primary'>
@@ -42,7 +56,7 @@ export default function Navbar() {
                     <CommonLink to='/' content={'To-Doリスト'}/>
                 </Typography>
                 {/*  */}
-                <SignedInLinks styles={'buttonSpacing'} cookie={cookieState} setCookieState={setCookieState}/>
+                <SignedInLinks styles={'buttonSpacing'} cookie={cookieState} />
                 <SignedOutLinks styles={'buttonSpacing'} cookie={cookieState} />
             </Toolbar>
         </AppBar>
