@@ -25063,7 +25063,7 @@ function Dashboard(props) {
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
       _useState2 = _slicedToArray(_useState, 2),
-      toDos = _useState2[0],
+      todos = _useState2[0],
       setTodos = _useState2[1];
 
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
@@ -25087,7 +25087,7 @@ function Dashboard(props) {
     }
   }, []);
   /**
-   * 
+   * TODOを全件取得
    */
 
   function getTodos() {
@@ -25096,7 +25096,7 @@ function Dashboard(props) {
     });
   }
   /**
-   * 
+   * TODOを登録
    * @param {object} todo 
    */
 
@@ -25112,7 +25112,7 @@ function Dashboard(props) {
   }
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_todos_TodoList__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    toDos: toDos,
+    todos: todos,
     addTodo: function addTodo(todo) {
       return _addTodo(todo);
     },
@@ -25970,6 +25970,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function TodoDetails(props) {
+  var _todoData$dead_line;
+
   var params = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_8__.useParams)();
   var history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_8__.useNavigate)();
   var cookies = props.cookies; // state定義
@@ -26007,7 +26009,7 @@ function TodoDetails(props) {
     return _getTodo.apply(this, arguments);
   }
   /**
-   * TODO編集処理を実行
+   * TODOを編集
    * @param {object} todo 
    */
 
@@ -26102,26 +26104,23 @@ function TodoDetails(props) {
             })
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_material_ui_core_CardContent__WEBPACK_IMPORTED_MODULE_18__["default"], {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_19__["default"], {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_19__["default"], {
             sx: {
               fontSize: 14
             },
             color: "textSecondary",
             gutterBottom: true,
-            children: "Word of the Day"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_19__["default"], {
+            children: ["\u671F\u9650\uFF1A", (_todoData$dead_line = todoData['dead_line']) !== null && _todoData$dead_line !== void 0 ? _todoData$dead_line : 'なし']
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_19__["default"], {
             variant: "h5",
             component: "div",
-            children: todoData['title']
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_19__["default"], {
+            children: ["\u30BF\u30A4\u30C8\u30EB\uFF1A", todoData['title']]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_19__["default"], {
             sx: {
               mb: 1.5
             },
             color: "textSecondary",
-            children: "adjective"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_19__["default"], {
-            variant: "body2",
-            children: ["well meaning and kindly.", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("br", {}), 'a benevolent smile']
+            children: ["\u512A\u5148\u9806\u4F4D\uFF1A", todoData['priority']]
           })]
         })]
       })
@@ -26145,17 +26144,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ TodoList)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/makeStyles.js");
-/* harmony import */ var _material_ui_core_Box__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Box */ "./node_modules/@material-ui/core/esm/Box/Box.js");
-/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/Button.js");
-/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/Grid.js");
-/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/esm/Typography/Typography.js");
-/* harmony import */ var _material_ui_core_Modal__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/Modal */ "./node_modules/@material-ui/core/esm/Modal/Modal.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/makeStyles.js");
+/* harmony import */ var _material_ui_core_Box__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Box */ "./node_modules/@material-ui/core/esm/Box/Box.js");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/Button.js");
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/Grid.js");
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/esm/Typography/Typography.js");
+/* harmony import */ var _material_ui_core_Modal__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core/Modal */ "./node_modules/@material-ui/core/esm/Modal/Modal.js");
 /* harmony import */ var _TodoSummary__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TodoSummary */ "./resources/js/components/todos/TodoSummary.js");
 /* harmony import */ var _modal_CreateTodoModal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../modal/CreateTodoModal */ "./resources/js/components/modal/CreateTodoModal.js");
 /* harmony import */ var _layout_common_CommonLink__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../layout/common/CommonLink */ "./resources/js/components/layout/common/CommonLink.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-var _excluded = ["toDos"];
+/* harmony import */ var _UtilFunction__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./UtilFunction */ "./resources/js/components/todos/UtilFunction.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+var _excluded = ["todos"];
 
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 
@@ -26173,7 +26173,8 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 
 
 
-var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["default"])({
+
+var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_6__["default"])({
   button: {
     '&:hover': {
       backgroundColor: '#6666ff'
@@ -26181,34 +26182,34 @@ var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["defaul
   }
 });
 function TodoList(_ref) {
-  var _ref$toDos = _ref.toDos,
-      toDos = _ref$toDos === void 0 ? [] : _ref$toDos,
+  var _ref$todos = _ref.todos,
+      todos = _ref$todos === void 0 ? [] : _ref$todos,
       props = _objectWithoutProperties(_ref, _excluded);
 
   var classes = useStyles();
-  var displayTodos = toDos['length'] ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  var displayTodos = todos['length'] ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_7__["default"], {
     padding: "1rem",
     textAlign: "left",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_8__["default"], {
       container: true,
       spacing: 3,
-      children: toDos && toDos.map(function (todo) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      children: (0,_UtilFunction__WEBPACK_IMPORTED_MODULE_4__.defaultSortTodo)(todos) && todos.map(function (todo) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_8__["default"], {
           item: true,
           xs: 12,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_layout_common_CommonLink__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_layout_common_CommonLink__WEBPACK_IMPORTED_MODULE_3__["default"], {
             to: '/todo/' + todo['id'],
-            content: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_TodoSummary__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            content: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_TodoSummary__WEBPACK_IMPORTED_MODULE_1__["default"], {
               todo: todo
             })
           })
         }, todo['id']);
       })
     })
-  }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_7__["default"], {
     padding: "2rem",
     textAlign: "center",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_9__["default"], {
       variant: "subtitle1",
       gutterBottom: true,
       children: "\u307E\u3060\u767B\u9332\u3055\u308C\u305FToDo\u306F\u3042\u308A\u307E\u305B\u3093\u3002"
@@ -26225,25 +26226,25 @@ function TodoList(_ref) {
     boxShadow: 24,
     p: 4
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_7__["default"], {
       padding: "2rem",
       textAlign: "center",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_10__["default"], {
         className: classes.button,
         variant: "contained",
         color: "primary",
         onClick: props['handleOpen'],
         children: "TODO\u3092\u767B\u9332\u3059\u308B"
       })
-    }), displayTodos, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_Modal__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    }), displayTodos, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_material_ui_core_Modal__WEBPACK_IMPORTED_MODULE_11__["default"], {
       open: props['open'],
       onClose: props['handleClose'],
       "aria-labelledby": "modal-modal-title",
       "aria-describedby": "modal-modal-description",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_7__["default"], {
         sx: style,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_modal_CreateTodoModal__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_modal_CreateTodoModal__WEBPACK_IMPORTED_MODULE_2__["default"], {
           addTodo: props['addTodo']
         })
       })
@@ -26274,8 +26275,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
 function ToDoSummary(_ref) {
   var todo = _ref.todo;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -26290,6 +26289,80 @@ function ToDoSummary(_ref) {
       })
     })
   });
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/todos/UtilFunction.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/todos/UtilFunction.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "sortTodosByAsc": () => (/* binding */ sortTodosByAsc),
+/* harmony export */   "sortTodosByDesc": () => (/* binding */ sortTodosByDesc),
+/* harmony export */   "sortTodoByPriority": () => (/* binding */ sortTodoByPriority),
+/* harmony export */   "defaultSortTodo": () => (/* binding */ defaultSortTodo)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+
+
+/**
+ * TODO-ID順に昇順ソート
+ */
+
+function sortTodosByAsc(todos) {
+  if (!lodash__WEBPACK_IMPORTED_MODULE_1___default().isEmpty(todos)) {
+    todos.sort(function (next, current) {
+      return next.id - current.id;
+    });
+    return todos;
+  }
+
+  return todos;
+}
+/**
+ * TODO-ID順に降順ソート
+ */
+
+function sortTodosByDesc(todos) {
+  if (!lodash__WEBPACK_IMPORTED_MODULE_1___default().isEmpty(todos)) {
+    todos.sort(function (next, current) {
+      return current.id - next.id;
+    });
+    return todos;
+  }
+
+  return todos;
+}
+/**
+ * TODOを優先度高い順にソート
+ */
+
+function sortTodoByPriority(todos) {
+  if (!lodash__WEBPACK_IMPORTED_MODULE_1___default().isEmpty(todos)) {
+    todos.sort(function (next, current) {
+      return current.priority - next.priority;
+    });
+    console.log(todos);
+    return todos;
+  }
+
+  return todos;
+}
+function defaultSortTodo(todos) {
+  if (!lodash__WEBPACK_IMPORTED_MODULE_1___default().isEmpty(todos)) {
+    var sortedByDesc = sortTodosByDesc(todos);
+    var sortedByPriority = sortTodoByPriority(sortedByDesc);
+    return sortedByPriority;
+  }
+
+  return todos;
 }
 
 /***/ }),

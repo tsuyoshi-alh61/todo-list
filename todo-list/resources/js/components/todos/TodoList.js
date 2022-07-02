@@ -8,6 +8,7 @@ import Modal from "@material-ui/core/Modal";
 import ToDoSummary from "./TodoSummary";
 import CreateTodoModal from "../modal/CreateTodoModal";
 import CommonLink from "../layout/common/CommonLink";
+import { defaultSortTodo } from './UtilFunction';
 
 const useStyles = makeStyles({
     button: {
@@ -17,13 +18,13 @@ const useStyles = makeStyles({
     }
 });
 
-export default function TodoList({toDos = [], ...props}) {
+export default function TodoList({todos = [], ...props}) {
     const classes = useStyles();
 
-    const displayTodos = toDos['length'] ? (
+    const displayTodos = todos['length'] ? (
         <Box padding="1rem" textAlign="left">
             <Grid container spacing={3}>
-                { toDos && toDos.map(todo => {
+                { defaultSortTodo(todos) && todos.map(todo => {
                     return (
                         <Grid item xs={12} key={todo['id']}>
                             <CommonLink to={'/todo/' + todo['id']} content={<ToDoSummary todo={todo} />} />

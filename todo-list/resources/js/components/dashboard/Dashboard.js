@@ -9,7 +9,7 @@ function Dashboard(props) {
     const history = useNavigate();
     const { cookies } = props;
     // state定義
-    const [toDos, setTodos] = useState([]);
+    const [todos, setTodos] = useState([]);
     const [open, setOpen] = useState(false);
 
     const handleOpen = () => setOpen(true);
@@ -25,7 +25,7 @@ function Dashboard(props) {
     }, [])
 
     /**
-     * 
+     * TODOを全件取得
      */
     function getTodos() {
         callGetTodoAll()
@@ -35,7 +35,7 @@ function Dashboard(props) {
     }
 
     /**
-     * 
+     * TODOを登録
      * @param {object} todo 
      */
     function addTodo(todo) {
@@ -49,7 +49,7 @@ function Dashboard(props) {
 
     return (
         <TodoList 
-            toDos={toDos}
+            todos={todos}
             addTodo={(todo) => addTodo(todo)}
             open={open}
             setOpen={() => setOpen()}

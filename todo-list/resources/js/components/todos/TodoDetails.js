@@ -49,7 +49,7 @@ function TodoDetails(props) {
     }
 
     /**
-     * TODO編集処理を実行
+     * TODOを編集
      * @param {object} todo 
      */
     function editTodo(todo) {
@@ -98,18 +98,13 @@ function TodoDetails(props) {
                     </CardActions>
                     <CardContent>
                         <Typography sx={{ fontSize: 14 }} color='textSecondary' gutterBottom>
-                        Word of the Day
+                            期限：{todoData['dead_line'] ?? 'なし'}
                         </Typography>
                         <Typography variant='h5' component='div'>
-                            {todoData['title']}
+                            タイトル：{todoData['title']}
                         </Typography>
                         <Typography sx={{ mb: 1.5 }} color='textSecondary'>
-                        adjective
-                        </Typography>
-                        <Typography variant='body2'>
-                        well meaning and kindly.
-                        <br />
-                        {'a benevolent smile'}
+                            優先順位：{todoData['priority']}
                         </Typography>
                     </CardContent>
                 </Card>
