@@ -4,8 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
-/public/hot
-/public/storage
+/public
 /storage/*.key
 /vendor
 .phpunit.result.cache
