@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, connect } from 'react-redux';
+import { withCookies } from "react-cookie";
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -7,6 +8,7 @@ import { makeStyles } from '@material-ui/core';
 import CommonLink from './common/CommonLink';
 import SignedInLinks from './SignedInLinks';
 import SignedOutLinks from './SignedOutLinks';
+import { createCookie } from '../../actions/authActions';
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -27,14 +29,20 @@ function getCookie() {
     }
 }
 
-export default function Navbar() {
+function Navbar(props) {
+    const { cookies } = props;
     const { auth } = useSelector(state => state);
     const refCookie = useRef(auth.cookie);
     const [ cookieState, setCookieState ] = useState(getCookie() ?? {});
     const classes = useStyles();
 
     useEffect(() => {
-        refCookie.current = auth.cookie;
+        if(cookies['cookies']['name']) {
+            props.createCookie(cookies['cookies']['name']);
+            setCookieState(cookies['cookies']['name']);
+        } else {
+            refCookie.current = auth.cookie;
+        }
     }, [auth.cookie]);
 
     useEffect(() => {
@@ -54,9 +62,20 @@ export default function Navbar() {
                 <Typography variant='h6' component='div' className={classes.root}>
                     <CommonLink to='/' content={'To-Doリスト'}/>
                 </Typography>
-                <SignedInLinks styles={'buttonSpacing'} cookie={cookieState} />
-                <SignedOutLinks styles={'buttonSpacing'} cookie={cookieState} />
+                {cookieState ? (
+                    <SignedInLinks styles={'buttonSpacing'} />
+                ) : (
+                    <SignedOutLinks styles={'buttonSpacing'} />
+                )}
             </Toolbar>
         </AppBar>
     )
 }
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        createCookie: (cookie) => dispatch(createCookie(cookie))
+    }
+}
+
+export default withCookies(connect(null, mapDispatchToProps)(Navbar));

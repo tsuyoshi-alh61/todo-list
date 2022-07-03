@@ -25196,18 +25196,20 @@ function Header() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Navbar)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _material_ui_core_AppBar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/AppBar */ "./node_modules/@material-ui/core/esm/AppBar/AppBar.js");
-/* harmony import */ var _material_ui_core_Toolbar__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/Toolbar */ "./node_modules/@material-ui/core/esm/Toolbar/Toolbar.js");
-/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/esm/Typography/Typography.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/styles/makeStyles.js");
+/* harmony import */ var react_cookie__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-cookie */ "./node_modules/react-cookie/es6/withCookies.js");
+/* harmony import */ var _material_ui_core_AppBar__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/AppBar */ "./node_modules/@material-ui/core/esm/AppBar/AppBar.js");
+/* harmony import */ var _material_ui_core_Toolbar__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Toolbar */ "./node_modules/@material-ui/core/esm/Toolbar/Toolbar.js");
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/esm/Typography/Typography.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/styles/makeStyles.js");
 /* harmony import */ var _common_CommonLink__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./common/CommonLink */ "./resources/js/components/layout/common/CommonLink.js");
 /* harmony import */ var _SignedInLinks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SignedInLinks */ "./resources/js/components/layout/SignedInLinks.js");
 /* harmony import */ var _SignedOutLinks__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SignedOutLinks */ "./resources/js/components/layout/SignedOutLinks.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _actions_authActions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actions/authActions */ "./resources/js/actions/authActions.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -25233,7 +25235,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 
 
-var useStyles = (0,_material_ui_core__WEBPACK_IMPORTED_MODULE_6__["default"])(function () {
+
+
+var useStyles = (0,_material_ui_core__WEBPACK_IMPORTED_MODULE_7__["default"])(function () {
   return {
     root: {
       flex: 1
@@ -25270,8 +25274,10 @@ function getCookie() {
   }
 }
 
-function Navbar() {
+function Navbar(props) {
   var _getCookie;
+
+  var cookies = props.cookies;
 
   var _useSelector = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
     return state;
@@ -25287,7 +25293,12 @@ function Navbar() {
 
   var classes = useStyles();
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    refCookie.current = auth.cookie;
+    if (cookies['cookies']['name']) {
+      props.createCookie(cookies['cookies']['name']);
+      setCookieState(cookies['cookies']['name']);
+    } else {
+      refCookie.current = auth.cookie;
+    }
   }, [auth.cookie]);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var intervalId = setInterval(function () {
@@ -25299,28 +25310,36 @@ function Navbar() {
       clearInterval(intervalId);
     };
   }, []);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_material_ui_core_AppBar__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_AppBar__WEBPACK_IMPORTED_MODULE_8__["default"], {
     position: "static",
     color: "primary",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_material_ui_core_Toolbar__WEBPACK_IMPORTED_MODULE_8__["default"], {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_material_ui_core_Toolbar__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_10__["default"], {
         variant: "h6",
         component: "div",
         className: classes.root,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_common_CommonLink__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_CommonLink__WEBPACK_IMPORTED_MODULE_2__["default"], {
           to: "/",
           content: 'To-Doリスト'
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_SignedInLinks__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        styles: 'buttonSpacing',
-        cookie: cookieState
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_SignedOutLinks__WEBPACK_IMPORTED_MODULE_4__["default"], {
-        styles: 'buttonSpacing',
-        cookie: cookieState
+      }), cookieState ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_SignedInLinks__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        styles: 'buttonSpacing'
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_SignedOutLinks__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        styles: 'buttonSpacing'
       })]
     })
   });
 }
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    createCookie: function createCookie(cookie) {
+      return dispatch((0,_actions_authActions__WEBPACK_IMPORTED_MODULE_5__.createCookie)(cookie));
+    }
+  };
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_cookie__WEBPACK_IMPORTED_MODULE_11__["default"])((0,react_redux__WEBPACK_IMPORTED_MODULE_1__.connect)(null, mapDispatchToProps)(Navbar)));
 
 /***/ }),
 
@@ -25379,23 +25398,19 @@ function SignedInLink(props) {
     history('/signin');
   }
 
-  if (props['cookie']['name']) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_7__["default"], {
-        color: "inherit",
-        variant: "outlined",
-        className: props['styles'],
-        onClick: function onClick() {
-          return logoutEvent();
-        },
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_common_CommonLink__WEBPACK_IMPORTED_MODULE_2__["default"], {
-          content: 'ログアウト'
-        })
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      color: "inherit",
+      variant: "outlined",
+      className: props['styles'],
+      onClick: function onClick() {
+        return logoutEvent();
+      },
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_common_CommonLink__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        content: 'ログアウト'
       })
-    });
-  }
-
-  return null;
+    })
+  });
 }
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
@@ -25431,32 +25446,26 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function SignedOutLinks(_ref) {
-  var styles = _ref.styles,
-      cookie = _ref.cookie;
-
-  if (!cookie['name']) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        color: "inherit",
-        variant: "outlined",
-        className: styles,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_common_CommonLink__WEBPACK_IMPORTED_MODULE_1__["default"], {
-          to: "/signup",
-          content: 'サインアップ'
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        color: "inherit",
-        variant: "outlined",
-        className: styles,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_common_CommonLink__WEBPACK_IMPORTED_MODULE_1__["default"], {
-          to: "/signin",
-          content: 'ログイン'
-        })
-      })]
-    });
-  }
-
-  return null;
+  var styles = _ref.styles;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      color: "inherit",
+      variant: "outlined",
+      className: styles,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_common_CommonLink__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        to: "/signup",
+        content: 'サインアップ'
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      color: "inherit",
+      variant: "outlined",
+      className: styles,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_common_CommonLink__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        to: "/signin",
+        content: 'ログイン'
+      })
+    })]
+  });
 }
 
 /***/ }),

@@ -16,17 +16,13 @@ function SignedInLink(props) {
         history('/signin');
     }
 
-    if(props['cookie']['name']) {
-        return (
-            <React.Fragment>
-                <Button color='inherit' variant='outlined' className={props['styles']} onClick={() => logoutEvent()}>
-                    <CommonLink content={'ログアウト'}/>
-                </Button>
-            </React.Fragment>
-        )
-    }
-
-    return null;
+    return (
+        <React.Fragment>
+            <Button color='inherit' variant='outlined' className={props['styles']} onClick={() => logoutEvent()}>
+                <CommonLink content={'ログアウト'}/>
+            </Button>
+        </React.Fragment>
+    )
 }
 
 const mapDispatchToProps = (dispatch) => {
