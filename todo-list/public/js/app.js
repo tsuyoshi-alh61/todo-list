@@ -25284,8 +25284,6 @@ function Navbar(props) {
   }),
       auth = _useSelector.auth;
 
-  var refCookie = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(auth.cookie);
-
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)((_getCookie = getCookie()) !== null && _getCookie !== void 0 ? _getCookie : {}),
       _useState2 = _slicedToArray(_useState, 2),
       cookieState = _useState2[0],
@@ -25297,7 +25295,8 @@ function Navbar(props) {
       props.createCookie(cookies['cookies']['name']);
       setCookieState(cookies['cookies']['name']);
     } else {
-      refCookie.current = auth.cookie;
+      props.createCookie({});
+      setCookieState({});
     }
   }, [auth.cookie]);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {

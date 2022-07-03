@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, connect } from 'react-redux';
 import { withCookies } from "react-cookie";
 import AppBar from '@material-ui/core/AppBar';
@@ -32,7 +32,6 @@ function getCookie() {
 function Navbar(props) {
     const { cookies } = props;
     const { auth } = useSelector(state => state);
-    const refCookie = useRef(auth.cookie);
     const [ cookieState, setCookieState ] = useState(getCookie() ?? {});
     const classes = useStyles();
 
@@ -41,7 +40,8 @@ function Navbar(props) {
             props.createCookie(cookies['cookies']['name']);
             setCookieState(cookies['cookies']['name']);
         } else {
-            refCookie.current = auth.cookie;
+            props.createCookie({});
+            setCookieState({});
         }
     }, [auth.cookie]);
 
