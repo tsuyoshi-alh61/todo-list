@@ -25589,6 +25589,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utility_CommonFunction__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utility/CommonFunction */ "./resources/js/components/utility/CommonFunction.js");
 /* harmony import */ var _config_categoryValues__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../config/categoryValues */ "./resources/js/config/categoryValues.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -25625,7 +25627,7 @@ function CreateTodo(props) {
   var initialValues = {
     title: '',
     content: '',
-    deadLine: new Date(),
+    deadLine: '',
     priority: 2
   };
 
@@ -25661,11 +25663,15 @@ function CreateTodo(props) {
   function handleSubmit(e) {
     e.preventDefault();
 
-    var copiedValues = lodash__WEBPACK_IMPORTED_MODULE_2___default().cloneDeep(inputValues);
+    var copiedInputValues = lodash__WEBPACK_IMPORTED_MODULE_2___default().cloneDeep(inputValues);
 
-    var convertDeadLine = (0,_utility_CommonFunction__WEBPACK_IMPORTED_MODULE_3__.converDateToString)(inputValues['deadLine']);
-    copiedValues['deadLine'] = convertDeadLine;
-    addTodo(copiedValues);
+    if (_typeof(inputValues['deadLine']) === 'object') {
+      copiedInputValues['deadLine'] = (0,_utility_CommonFunction__WEBPACK_IMPORTED_MODULE_3__.converDateToString)(inputValues['deadLine']);
+    } // TODOの登録処理実行
+
+
+    addTodo(copiedInputValues); // stateのリセット
+
     setInputValues(initialValues);
   }
 

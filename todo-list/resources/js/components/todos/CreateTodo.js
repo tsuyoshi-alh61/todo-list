@@ -15,7 +15,7 @@ export default function CreateTodo(props) {
     const initialValues = {
         title: '',
         content: '',
-        deadLine: new Date(),
+        deadLine: '',
         priority: 2
     }
     const [inputValues, setInputValues] = useState(initialValues);
@@ -43,10 +43,16 @@ export default function CreateTodo(props) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        let copiedValues = _.cloneDeep(inputValues);
-        let convertDeadLine = converDateToString(inputValues['deadLine']);
-        copiedValues['deadLine'] = convertDeadLine;
-        addTodo(copiedValues);
+
+        let copiedInputValues = _.cloneDeep(inputValues);
+        if(typeof(inputValues['deadLine']) === 'object') {
+            copiedInputValues['deadLine'] = converDateToString(inputValues['deadLine']);
+        }
+
+        // TODOの登録処理実行
+        addTodo(copiedInputValues);
+
+        // stateのリセット
         setInputValues(initialValues);
     }
 
