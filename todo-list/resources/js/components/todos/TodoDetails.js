@@ -11,6 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import Modal from '@material-ui/core/Modal';
 import Box from '@material-ui/core/Box';
 import Tooltip from '@material-ui/core/Tooltip';
+import DoneIcon from '@material-ui/icons/Done';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditTodoModal from '../modal/EditTodoModal';
@@ -48,6 +49,10 @@ function TodoDetails(props) {
         })
     }
 
+    function finishTodo() {
+        console.log(todoData);
+    }
+
     /**
      * TODOを編集
      * @param {object} todo 
@@ -57,10 +62,13 @@ function TodoDetails(props) {
         handleClose();
         // Todoを登録するAPI呼び出し
         callUpdateTodo(todo);
-        // ダッシュボード画面へ繊維
-        history('/');
+        // 更新したTODOを取得
+        getTodo();
     }
 
+    /**
+     * TODOを削除
+     */
     function deleteTodo() {
         // モーダルを閉じる
         handleClose();
@@ -85,12 +93,17 @@ function TodoDetails(props) {
             <Container maxWidth='sm' style={{marginTop: '50px'}} className='TodoDetails'>
                 <Card sx={{ minWidth: 275 }}>
                     <CardActions className='buttonArea'>
+                        <Button color={'primary'} variant='contained' size='small' onClick={() => finishTodo()}>
+                            <Tooltip title='完了'>
+                                <DoneIcon />
+                            </Tooltip>
+                        </Button>
                         <Button color={'primary'} variant='contained' size='small' onClick={() => handleOpen()}>
                             <Tooltip title='編集'>
                                 <EditIcon />
                             </Tooltip>
                         </Button>
-                        <Button color={'secondary'} variant='contained' size='small' onClick={() => deleteTodo()}>
+                        <Button color={'primary'} variant='contained' size='small' onClick={() => deleteTodo()}>
                             <Tooltip title='削除'>
                                 <DeleteIcon />
                             </Tooltip>

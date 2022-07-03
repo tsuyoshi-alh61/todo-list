@@ -5,16 +5,21 @@ return [
         // 優先度の区分値
         'TODO_PRIORITY' => [
             'HIGH' => [
-                'ID' => 'TODOHIG',
-                'NAME' => '高い'
+                'value' => 3,
+                'label' => '高い'
             ],
             'NORMAL' => [
-                'ID' => 'TODONOR',
-                'NAME' => '普通'
+                'value' => 2,
+                'label' => '普通'
             ],
             'LOW' => [
-                'ID' => 'TODOLOW',
-                'NAME' => '低い'
+                'value' => 1,
+                'label' => '低い'
+            ],
+            'OPTIONS' => [
+                [ 'value' => 3, 'label' => '高い' ],
+                [ 'value' => 2, 'label' => '普通' ],
+                [ 'value' => 1, 'label' => '低い' ]
             ]
         ]
     ]

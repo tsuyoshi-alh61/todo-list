@@ -16424,6 +16424,36 @@ exports["default"] = _default;
 
 /***/ }),
 
+/***/ "./node_modules/@material-ui/icons/Done.js":
+/*!*************************************************!*\
+  !*** ./node_modules/@material-ui/icons/Done.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+var _interopRequireWildcard = __webpack_require__(/*! @babel/runtime/helpers/interopRequireWildcard */ "./node_modules/@babel/runtime/helpers/interopRequireWildcard.js");
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+
+var React = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@material-ui/icons/utils/createSvgIcon.js"));
+
+var _default = (0, _createSvgIcon.default)( /*#__PURE__*/React.createElement("path", {
+  d: "M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+}), 'Done');
+
+exports["default"] = _default;
+
+/***/ }),
+
 /***/ "./node_modules/@material-ui/icons/Edit.js":
 /*!*************************************************!*\
   !*** ./node_modules/@material-ui/icons/Edit.js ***!
@@ -25069,7 +25099,8 @@ function Dashboard(props) {
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       _useState4 = _slicedToArray(_useState3, 2),
       open = _useState4[0],
-      _setOpen = _useState4[1];
+      _setOpen = _useState4[1]; // TODO登録モーダルの開閉処理
+
 
   var _handleOpen = function handleOpen() {
     return _setOpen(true);
@@ -25536,19 +25567,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ CreateTodo)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_datepicker__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-datepicker */ "./node_modules/react-datepicker/dist/react-datepicker.min.js");
-/* harmony import */ var react_datepicker__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react_datepicker__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var react_select__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-select */ "./node_modules/react-select/dist/react-select.esm.js");
+/* harmony import */ var react_datepicker__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-datepicker */ "./node_modules/react-datepicker/dist/react-datepicker.min.js");
+/* harmony import */ var react_datepicker__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(react_datepicker__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var react_select__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-select */ "./node_modules/react-select/dist/react-select.esm.js");
 /* harmony import */ var react_datepicker_dist_react_datepicker_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-datepicker/dist/react-datepicker.css */ "./node_modules/react-datepicker/dist/react-datepicker.css");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _material_ui_core_Box__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/Box */ "./node_modules/@material-ui/core/esm/Box/Box.js");
-/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/FormControl */ "./node_modules/@material-ui/core/esm/FormControl/FormControl.js");
-/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/esm/Typography/Typography.js");
-/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/TextField */ "./node_modules/@material-ui/core/esm/TextField/TextField.js");
-/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/Button.js");
+/* harmony import */ var _material_ui_core_Box__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Box */ "./node_modules/@material-ui/core/esm/Box/Box.js");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/FormControl */ "./node_modules/@material-ui/core/esm/FormControl/FormControl.js");
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/esm/Typography/Typography.js");
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/TextField */ "./node_modules/@material-ui/core/esm/TextField/TextField.js");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/Button.js");
 /* harmony import */ var _utility_CommonFunction__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utility/CommonFunction */ "./resources/js/components/utility/CommonFunction.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _config_categoryValues__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../config/categoryValues */ "./resources/js/config/categoryValues.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -25580,12 +25612,13 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 function CreateTodo(props) {
   var initialValues = {
     title: '',
     content: '',
     deadLine: new Date(),
-    priority: 0
+    priority: 2
   };
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(initialValues),
@@ -25628,29 +25661,19 @@ function CreateTodo(props) {
     setInputValues(initialValues);
   }
 
-  var options = [{
-    value: '3',
-    label: '高い'
-  }, {
-    value: '2',
-    label: '普通'
-  }, {
-    value: '1',
-    label: '低い'
-  }];
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
     className: "createTodo",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_6__["default"], {
       component: "form",
       autoComplete: "off",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_7__["default"], {
         variant: "h5",
         component: "h2",
         children: "TODO\u767B\u9332\u753B\u9762"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_8__["default"], {
         variant: "standard",
         margin: "dense",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_8__["default"], {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_9__["default"], {
           sx: {
             m: 2
           },
@@ -25660,41 +25683,38 @@ function CreateTodo(props) {
           defaultValue: inputValues.title,
           onChange: handleInputChange
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_8__["default"], {
         variant: "standard",
         margin: "dense",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
           children: "\u671F\u9650"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)((react_datepicker__WEBPACK_IMPORTED_MODULE_9___default()), {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)((react_datepicker__WEBPACK_IMPORTED_MODULE_10___default()), {
           dateFormat: "yyyy/MM/dd",
           onChange: handleDatePicker,
           selected: inputValues['deadLine']
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_8__["default"], {
         fullWidth: true,
         variant: "standard",
         margin: "dense",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
           children: "\u512A\u5148\u5EA6"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
           className: "input-field",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_select__WEBPACK_IMPORTED_MODULE_10__["default"], {
-            defaultValue: {
-              value: '2',
-              label: '普通'
-            },
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_select__WEBPACK_IMPORTED_MODULE_11__["default"], {
+            defaultValue: _config_categoryValues__WEBPACK_IMPORTED_MODULE_4__.CATEGORY_VALUE.TODO_PRIORITY.NORMAL,
             placeholder: "\u512A\u5148\u5EA6\u5408\u3092\u9078\u629E\u3057\u3066\u304F\u3060\u3055\u3044",
-            options: options,
+            options: _config_categoryValues__WEBPACK_IMPORTED_MODULE_4__.CATEGORY_VALUE.TODO_PRIORITY.OPTIONS,
             onChange: handlePriority,
             minDate: new Date()
           })
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: "buttonArea",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_7__["default"], {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_8__["default"], {
           variant: "standard",
           margin: "dense",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_11__["default"], {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_12__["default"], {
             color: "primary",
             variant: "contained",
             onClick: handleSubmit,
@@ -25720,19 +25740,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ EditTodo)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_datepicker__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-datepicker */ "./node_modules/react-datepicker/dist/react-datepicker.min.js");
-/* harmony import */ var react_datepicker__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react_datepicker__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var react_select__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-select */ "./node_modules/react-select/dist/react-select.esm.js");
+/* harmony import */ var react_datepicker__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-datepicker */ "./node_modules/react-datepicker/dist/react-datepicker.min.js");
+/* harmony import */ var react_datepicker__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(react_datepicker__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var react_select__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-select */ "./node_modules/react-select/dist/react-select.esm.js");
 /* harmony import */ var react_datepicker_dist_react_datepicker_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-datepicker/dist/react-datepicker.css */ "./node_modules/react-datepicker/dist/react-datepicker.css");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _material_ui_core_Box__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/Box */ "./node_modules/@material-ui/core/esm/Box/Box.js");
-/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/FormControl */ "./node_modules/@material-ui/core/esm/FormControl/FormControl.js");
-/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/esm/Typography/Typography.js");
-/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/TextField */ "./node_modules/@material-ui/core/esm/TextField/TextField.js");
-/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/Button.js");
-/* harmony import */ var _utility_CommonFunction__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utility/CommonFunction */ "./resources/js/components/utility/CommonFunction.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _material_ui_core_Box__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Box */ "./node_modules/@material-ui/core/esm/Box/Box.js");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/FormControl */ "./node_modules/@material-ui/core/esm/FormControl/FormControl.js");
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/esm/Typography/Typography.js");
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/TextField */ "./node_modules/@material-ui/core/esm/TextField/TextField.js");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/Button.js");
+/* harmony import */ var _UtilFunction__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./UtilFunction */ "./resources/js/components/todos/UtilFunction.js");
+/* harmony import */ var _utility_CommonFunction__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utility/CommonFunction */ "./resources/js/components/utility/CommonFunction.js");
+/* harmony import */ var _config_categoryValues__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../config/categoryValues */ "./resources/js/config/categoryValues.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -25764,6 +25788,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
+
 function EditTodo(props) {
   var id = props.id,
       title = props.title,
@@ -25772,7 +25798,7 @@ function EditTodo(props) {
   var initialValues = {
     id: id,
     title: title,
-    deadLine: dead_line !== null && dead_line !== void 0 ? dead_line : new Date(),
+    deadLine: dead_line !== null && dead_line !== void 0 ? dead_line : '',
     priority: priority
   };
 
@@ -25788,9 +25814,7 @@ function EditTodo(props) {
   }
 
   function handleDatePicker(deadLine) {
-    var dateNow = new Date();
-
-    if (deadLine >= dateNow) {
+    if ((0,_UtilFunction__WEBPACK_IMPORTED_MODULE_3__.compareDate)(deadLine)) {
       setInputValues(_objectSpread(_objectSpread({}, inputValues), {}, {
         deadLine: deadLine
       }));
@@ -25807,32 +25831,29 @@ function EditTodo(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    editTodo(inputValues);
+
+    var copiedInputValues = lodash__WEBPACK_IMPORTED_MODULE_2___default().cloneDeep(inputValues);
+
+    if (_typeof(inputValues['deadLine']) === 'object') {
+      copiedInputValues['deadLine'] = (0,_utility_CommonFunction__WEBPACK_IMPORTED_MODULE_4__.converDateToString)(inputValues['deadLine']);
+    }
+
+    editTodo(copiedInputValues);
   }
 
-  var options = [{
-    value: '3',
-    label: '高い'
-  }, {
-    value: '2',
-    label: '普通'
-  }, {
-    value: '1',
-    label: '低い'
-  }];
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     className: "createTodo",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_7__["default"], {
       component: "form",
       autoComplete: "off",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8__["default"], {
         variant: "h5",
         component: "h2",
         children: "TODO\u767B\u9332\u753B\u9762"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_9__["default"], {
         variant: "standard",
         margin: "dense",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_8__["default"], {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_10__["default"], {
           sx: {
             m: 2
           },
@@ -25842,40 +25863,40 @@ function EditTodo(props) {
           defaultValue: inputValues['title'],
           onChange: handleInputChange
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_9__["default"], {
         variant: "standard",
         margin: "dense",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
           children: "\u671F\u9650"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)((react_datepicker__WEBPACK_IMPORTED_MODULE_9___default()), {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)((react_datepicker__WEBPACK_IMPORTED_MODULE_11___default()), {
           dateFormat: "yyyy/MM/dd",
           onChange: handleDatePicker,
-          selected: new Date(inputValues['deadLine'])
+          selected: inputValues['deadLine'] ? new Date(inputValues['deadLine']) : new Date()
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_9__["default"], {
         fullWidth: true,
         variant: "standard",
         margin: "dense",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
           children: "\u512A\u5148\u5EA6"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
           className: "input-field",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_select__WEBPACK_IMPORTED_MODULE_10__["default"], {
-            defaultValue: options.find(function (element) {
-              return element['value'] == 2;
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_select__WEBPACK_IMPORTED_MODULE_12__["default"], {
+            defaultValue: _config_categoryValues__WEBPACK_IMPORTED_MODULE_5__.CATEGORY_VALUE.TODO_PRIORITY.OPTIONS.find(function (element) {
+              return element['value'] == inputValues['priority'];
             }),
             placeholder: "\u512A\u5148\u5EA6\u5408\u3092\u9078\u629E\u3057\u3066\u304F\u3060\u3055\u3044",
-            options: options,
+            options: _config_categoryValues__WEBPACK_IMPORTED_MODULE_5__.CATEGORY_VALUE.TODO_PRIORITY.OPTIONS,
             onChange: handlePriority,
             minDate: new Date()
           })
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
         className: "buttonArea",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_7__["default"], {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_9__["default"], {
           variant: "standard",
           margin: "dense",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_11__["default"], {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_13__["default"], {
             color: "primary",
             variant: "contained",
             onClick: handleSubmit,
@@ -25904,20 +25925,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
-/* harmony import */ var react_cookie__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! react-cookie */ "./node_modules/react-cookie/es6/withCookies.js");
+/* harmony import */ var react_cookie__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! react-cookie */ "./node_modules/react-cookie/es6/withCookies.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _material_ui_core_Container__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core/Container */ "./node_modules/@material-ui/core/esm/Container/Container.js");
 /* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/core/Card */ "./node_modules/@material-ui/core/esm/Card/Card.js");
 /* harmony import */ var _material_ui_core_CardActions__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @material-ui/core/CardActions */ "./node_modules/@material-ui/core/esm/CardActions/CardActions.js");
-/* harmony import */ var _material_ui_core_CardContent__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @material-ui/core/CardContent */ "./node_modules/@material-ui/core/esm/CardContent/CardContent.js");
+/* harmony import */ var _material_ui_core_CardContent__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @material-ui/core/CardContent */ "./node_modules/@material-ui/core/esm/CardContent/CardContent.js");
 /* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/Button.js");
-/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/esm/Typography/Typography.js");
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/esm/Typography/Typography.js");
 /* harmony import */ var _material_ui_core_Modal__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Modal */ "./node_modules/@material-ui/core/esm/Modal/Modal.js");
 /* harmony import */ var _material_ui_core_Box__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/Box */ "./node_modules/@material-ui/core/esm/Box/Box.js");
 /* harmony import */ var _material_ui_core_Tooltip__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @material-ui/core/Tooltip */ "./node_modules/@material-ui/core/esm/Tooltip/Tooltip.js");
-/* harmony import */ var _material_ui_icons_Edit__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @material-ui/icons/Edit */ "./node_modules/@material-ui/icons/Edit.js");
-/* harmony import */ var _material_ui_icons_Delete__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @material-ui/icons/Delete */ "./node_modules/@material-ui/icons/Delete.js");
+/* harmony import */ var _material_ui_icons_Done__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @material-ui/icons/Done */ "./node_modules/@material-ui/icons/Done.js");
+/* harmony import */ var _material_ui_icons_Edit__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @material-ui/icons/Edit */ "./node_modules/@material-ui/icons/Edit.js");
+/* harmony import */ var _material_ui_icons_Delete__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @material-ui/icons/Delete */ "./node_modules/@material-ui/icons/Delete.js");
 /* harmony import */ var _modal_EditTodoModal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../modal/EditTodoModal */ "./resources/js/components/modal/EditTodoModal.js");
 /* harmony import */ var _apiCaller_read__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../apiCaller/read */ "./resources/js/apiCaller/read.js");
 /* harmony import */ var _apiCaller_update__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../apiCaller/update */ "./resources/js/apiCaller/update.js");
@@ -25946,6 +25968,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -26008,11 +26031,6 @@ function TodoDetails(props) {
   function getTodo() {
     return _getTodo.apply(this, arguments);
   }
-  /**
-   * TODOを編集
-   * @param {object} todo 
-   */
-
 
   function _getTodo() {
     _getTodo = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -26034,14 +26052,27 @@ function TodoDetails(props) {
     return _getTodo.apply(this, arguments);
   }
 
+  function finishTodo() {
+    console.log(todoData);
+  }
+  /**
+   * TODOを編集
+   * @param {object} todo 
+   */
+
+
   function _editTodo(todo) {
     // モーダルを閉じる
     handleClose(); // Todoを登録するAPI呼び出し
 
-    (0,_apiCaller_update__WEBPACK_IMPORTED_MODULE_5__.callUpdateTodo)(todo); // ダッシュボード画面へ繊維
+    (0,_apiCaller_update__WEBPACK_IMPORTED_MODULE_5__.callUpdateTodo)(todo); // 更新したTODOを取得
 
-    history('/');
+    getTodo();
   }
+  /**
+   * TODOを削除
+   */
+
 
   function deleteTodo() {
     // モーダルを閉じる
@@ -26085,14 +26116,25 @@ function TodoDetails(props) {
             variant: "contained",
             size: "small",
             onClick: function onClick() {
+              return finishTodo();
+            },
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_material_ui_core_Tooltip__WEBPACK_IMPORTED_MODULE_15__["default"], {
+              title: "\u5B8C\u4E86",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_material_ui_icons_Done__WEBPACK_IMPORTED_MODULE_16__["default"], {})
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_14__["default"], {
+            color: 'primary',
+            variant: "contained",
+            size: "small",
+            onClick: function onClick() {
               return handleOpen();
             },
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_material_ui_core_Tooltip__WEBPACK_IMPORTED_MODULE_15__["default"], {
               title: "\u7DE8\u96C6",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_material_ui_icons_Edit__WEBPACK_IMPORTED_MODULE_16__["default"], {})
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_material_ui_icons_Edit__WEBPACK_IMPORTED_MODULE_17__["default"], {})
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_14__["default"], {
-            color: 'secondary',
+            color: 'primary',
             variant: "contained",
             size: "small",
             onClick: function onClick() {
@@ -26100,22 +26142,22 @@ function TodoDetails(props) {
             },
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_material_ui_core_Tooltip__WEBPACK_IMPORTED_MODULE_15__["default"], {
               title: "\u524A\u9664",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_material_ui_icons_Delete__WEBPACK_IMPORTED_MODULE_17__["default"], {})
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_material_ui_icons_Delete__WEBPACK_IMPORTED_MODULE_18__["default"], {})
             })
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_material_ui_core_CardContent__WEBPACK_IMPORTED_MODULE_18__["default"], {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_19__["default"], {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_material_ui_core_CardContent__WEBPACK_IMPORTED_MODULE_19__["default"], {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_20__["default"], {
             sx: {
               fontSize: 14
             },
             color: "textSecondary",
             gutterBottom: true,
             children: ["\u671F\u9650\uFF1A", (_todoData$dead_line = todoData['dead_line']) !== null && _todoData$dead_line !== void 0 ? _todoData$dead_line : 'なし']
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_19__["default"], {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_20__["default"], {
             variant: "h5",
             component: "div",
             children: ["\u30BF\u30A4\u30C8\u30EB\uFF1A", todoData['title']]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_19__["default"], {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_20__["default"], {
             sx: {
               mb: 1.5
             },
@@ -26128,7 +26170,7 @@ function TodoDetails(props) {
   });
 }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_cookie__WEBPACK_IMPORTED_MODULE_20__["default"])(TodoDetails));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_cookie__WEBPACK_IMPORTED_MODULE_21__["default"])(TodoDetails));
 
 /***/ }),
 
@@ -26181,6 +26223,17 @@ var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_6__["defaul
     }
   }
 });
+var boxStyle = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4
+};
 function TodoList(_ref) {
   var _ref$todos = _ref.todos,
       todos = _ref$todos === void 0 ? [] : _ref$todos,
@@ -26215,17 +26268,6 @@ function TodoList(_ref) {
       children: "\u307E\u3060\u767B\u9332\u3055\u308C\u305FToDo\u306F\u3042\u308A\u307E\u305B\u3093\u3002"
     })
   });
-  var style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4
-  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_7__["default"], {
       padding: "2rem",
@@ -26243,7 +26285,7 @@ function TodoList(_ref) {
       "aria-labelledby": "modal-modal-title",
       "aria-describedby": "modal-modal-description",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_7__["default"], {
-        sx: style,
+        sx: boxStyle,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_modal_CreateTodoModal__WEBPACK_IMPORTED_MODULE_2__["default"], {
           addTodo: props['addTodo']
         })
@@ -26275,8 +26317,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function ToDoSummary(_ref) {
-  var todo = _ref.todo;
+function ToDoSummary(props) {
+  var todo = props.todo;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_2__["default"], {
     sx: {
       minWidth: 275
@@ -26305,7 +26347,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "sortTodosByAsc": () => (/* binding */ sortTodosByAsc),
 /* harmony export */   "sortTodosByDesc": () => (/* binding */ sortTodosByDesc),
 /* harmony export */   "sortTodoByPriority": () => (/* binding */ sortTodoByPriority),
-/* harmony export */   "defaultSortTodo": () => (/* binding */ defaultSortTodo)
+/* harmony export */   "defaultSortTodo": () => (/* binding */ defaultSortTodo),
+/* harmony export */   "compareDate": () => (/* binding */ compareDate)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
@@ -26349,7 +26392,6 @@ function sortTodoByPriority(todos) {
     todos.sort(function (next, current) {
       return current.priority - next.priority;
     });
-    console.log(todos);
     return todos;
   }
 
@@ -26363,6 +26405,31 @@ function defaultSortTodo(todos) {
   }
 
   return todos;
+}
+function compareDate(targetDate) {
+  // 選択した日付から、年、月、日を抽出
+  var targetDateYear = targetDate.getFullYear();
+  var targetDateMonth = targetDate.getMonth();
+  var targetDateDay = targetDate.getDate(); // 現在の日付から、年、月、日を抽出
+
+  var date = new Date();
+  var dateYear = date.getFullYear();
+  var dateMonth = date.getMonth();
+  var dateDay = date.getDate();
+
+  if (targetDateYear < dateYear) {
+    return false;
+  }
+
+  if (targetDateMonth < dateMonth) {
+    return false;
+  }
+
+  if (targetDateDay < dateDay) {
+    return false;
+  }
+
+  return true;
 }
 
 /***/ }),
@@ -26378,14 +26445,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "converDateToString": () => (/* binding */ converDateToString)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
 /**
- * 
- * @param {*} date 
- * @returns 
+ * Date型からString型に変換
+ * @param   {object} date // 変換対象の値
+ * @returns {string}      // 変換結果
  */
-
 var converDateToString = function converDateToString(date) {
   if (date) {
     var year_str = date.getFullYear();
@@ -26400,6 +26464,29 @@ var converDateToString = function converDateToString(date) {
 
   return '';
 };
+
+/***/ }),
+
+/***/ "./resources/js/config/categoryValues.js":
+/*!***********************************************!*\
+  !*** ./resources/js/config/categoryValues.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "CATEGORY_VALUE": () => (/* binding */ CATEGORY_VALUE)
+/* harmony export */ });
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//区分値
+var COPIED_VALUE = window['CATEGORY_VALUE'];
+var CATEGORY_VALUE = _objectSpread({}, COPIED_VALUE);
 
 /***/ }),
 

@@ -8,10 +8,12 @@ import { callAddTodoApi } from '../../apiCaller/create';
 function Dashboard(props) {
     const history = useNavigate();
     const { cookies } = props;
+
     // state定義
     const [todos, setTodos] = useState([]);
     const [open, setOpen] = useState(false);
 
+    // TODO登録モーダルの開閉処理
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 

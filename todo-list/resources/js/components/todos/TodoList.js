@@ -18,6 +18,18 @@ const useStyles = makeStyles({
     }
 });
 
+const boxStyle = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+};
+
 export default function TodoList({todos = [], ...props}) {
     const classes = useStyles();
 
@@ -41,18 +53,6 @@ export default function TodoList({todos = [], ...props}) {
         </Box>
     )
 
-    const style = {
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        width: 400,
-        bgcolor: 'background.paper',
-        border: '2px solid #000',
-        boxShadow: 24,
-        p: 4,
-    };
-
     return (
         <React.Fragment>
             <Box padding="2rem" textAlign="center">
@@ -72,7 +72,7 @@ export default function TodoList({todos = [], ...props}) {
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
-                <Box sx={style}>
+                <Box sx={boxStyle}>
                     <CreateTodoModal addTodo={props['addTodo']}/>
                 </Box>
             </Modal>

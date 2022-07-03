@@ -45,7 +45,7 @@ class ToDoController extends Controller {
     public function updateTodo(Request $request) {
         $todo = Todo::find($request->id);
         $todo->title = $request->title;
-        $todo->dead_line = $request->dead_line;
+        $todo->dead_line = $request->deadLine;
         $todo->priority = $request->priority;
         $todo->save();
 

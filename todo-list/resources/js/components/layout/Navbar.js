@@ -51,11 +51,9 @@ export default function Navbar() {
     return (
         <AppBar position='static' color='primary'>
             <Toolbar>
-                {/*  */}
                 <Typography variant='h6' component='div' className={classes.root}>
                     <CommonLink to='/' content={'To-Doリスト'}/>
                 </Typography>
-                {/*  */}
                 <SignedInLinks styles={'buttonSpacing'} cookie={cookieState} />
                 <SignedOutLinks styles={'buttonSpacing'} cookie={cookieState} />
             </Toolbar>

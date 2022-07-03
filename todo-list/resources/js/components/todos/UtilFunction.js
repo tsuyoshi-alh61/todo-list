@@ -31,7 +31,6 @@ export function sortTodosByDesc(todos) {
 export function sortTodoByPriority(todos) {
     if(!_.isEmpty(todos)) {
         todos.sort((next, current) => { return current.priority - next.priority });
-        console.log(todos);
         return todos;
     }
 
@@ -46,4 +45,31 @@ export function defaultSortTodo(todos) {
     }
 
     return todos;
+}
+
+export function compareDate(targetDate) {
+    // 選択した日付から、年、月、日を抽出
+    let targetDateYear = targetDate.getFullYear();
+    let targetDateMonth = targetDate.getMonth();
+    let targetDateDay = targetDate.getDate();
+
+    // 現在の日付から、年、月、日を抽出
+    const date = new Date();
+    let dateYear = date.getFullYear();
+    let dateMonth = date.getMonth();
+    let dateDay = date.getDate();
+
+    if(targetDateYear < dateYear) {
+        return false;
+    }
+
+    if(targetDateMonth < dateMonth) {
+        return false;
+    }
+
+    if(targetDateDay < dateDay) {
+        return false;
+    }
+
+    return true;
 }

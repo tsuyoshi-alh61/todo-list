@@ -1,9 +1,7 @@
-import React from "react";
-
 /**
- * 
- * @param {*} date 
- * @returns 
+ * Date型からString型に変換
+ * @param   {object} date // 変換対象の値
+ * @returns {string}      // 変換結果
  */
 export const converDateToString = (date) => {
     if(date) {
