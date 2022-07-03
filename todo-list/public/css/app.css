@@ -11322,6 +11322,13 @@ textarea.form-control-lg {
 .createTodo .buttonArea {
   text-align: center;
 }
+.createTodo .pickerLayout {
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
+.createTodo .dateTimePicker {
+  width: 100%;
+}
 
 .TodoDetails.modalContents {
   top: 50%;

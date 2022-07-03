@@ -1,23 +1,29 @@
 import React, { useState } from 'react';
-import DatePicker from 'react-datepicker';
 import Select from 'react-select';
+import DateTimePicker, { registerLocale } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import ja from 'date-fns/locale/ja';
 import _ from 'lodash';
 import Box from '@material-ui/core/Box';
 import FormControl from '@material-ui/core/FormControl';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import { styled } from '@material-ui/core';
 import { converDateToString } from '../utility/CommonFunction';
 import { CATEGORY_VALUE } from '../../config/categoryValues';
 
 export default function CreateTodo(props) {
+    // DatePickerの表示を日本語に設定
+    registerLocale('ja', ja);
+
+    // 入力項目の初期値
     const initialValues = {
         title: '',
-        content: '',
         deadLine: '',
         priority: 2
     }
+
     const [inputValues, setInputValues] = useState(initialValues);
     const { addTodo } = props;
 
@@ -62,23 +68,22 @@ export default function CreateTodo(props) {
                 component='form'
                 autoComplete='off'
             >  
-                <Typography variant='h5' component='h2'>
+                <Typography variant='h4' component='h2'>
                     TODO登録画面
                 </Typography>
-                <FormControl variant='standard' margin='dense'>
-                    <TextField
-                        sx={{ m: 2 }}
-                        id='title'
-                        label='タイトル'
-                        type='text'
-                        defaultValue={inputValues.title}
-                        onChange={handleInputChange}
-                    />
-                </FormControl>
-                <FormControl variant='standard' margin='dense'>
+                <MoldTitleElement title={inputValues['title']} event={handleInputChange} />
+                <div className='pickerLayout'>
                     <label>期限</label>
-                    <DatePicker dateFormat='yyyy/MM/dd' onChange={handleDatePicker} selected={inputValues['deadLine']} />
-                </FormControl>
+                    <DateTimePicker 
+                        className='dateTimePicker'
+                        showTimeSelect
+                        locale='ja'
+                        dateFormat='yyyy/MM/dd hh:mm'
+                        onChange={handleDatePicker}
+                        selected={inputValues['deadLine']}
+                        minDate={new Date()}
+                    />
+                </div>
                 <FormControl fullWidth variant='standard' margin='dense'>
                     <label>優先度</label>
                     <div className='input-field'>
@@ -87,7 +92,6 @@ export default function CreateTodo(props) {
                             placeholder='優先度合を選択してください'
                             options={CATEGORY_VALUE['TODO_PRIORITY']['OPTIONS']}
                             onChange={handlePriority}
-                            minDate={new Date()}
                         />
                     </div>
                 </FormControl>
@@ -98,5 +102,27 @@ export default function CreateTodo(props) {
                 </div>
             </Box>
         </div>
+    )
+}
+
+function MoldTitleElement({title, event}) {
+    const Title = styled('div')(({ theme }) => ({
+        marginTop: '16px'
+      }));
+
+    return (
+        <React.Fragment>
+            <Title>タイトル</Title>
+            <FormControl variant='standard' margin='dense' fullWidth>
+                <TextField
+                    id='title'
+                    type='text'
+                    size='small'
+                    variant='outlined'
+                    defaultValue={title}
+                    onChange={event}
+                />
+            </FormControl>
+        </React.Fragment>
     )
 }
