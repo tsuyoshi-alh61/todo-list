@@ -14,6 +14,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import DoneIcon from '@material-ui/icons/Done';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
+import KeyboardReturnIcon from '@material-ui/icons/KeyboardReturn';
 import EditTodoModal from '../modal/EditTodoModal';
 import { callGetTodoByIdApi } from '../../apiCaller/read';
 import { callUpdateTodo } from '../../apiCaller/update';
@@ -49,8 +50,15 @@ function TodoDetails(props) {
         })
     }
 
-    function finishTodo() {
-        console.log(todoData);
+    function finishTodo(isDone) {
+        let copiedValue = _.cloneDeep(todoData);
+        copiedValue['is_done'] = isDone;
+
+        // Todoを登録するAPI呼び出し
+        callUpdateTodo(copiedValue);
+
+        // ダッシュボード画面へ繊維
+        history('/');
     }
 
     /**
@@ -93,11 +101,19 @@ function TodoDetails(props) {
             <Container maxWidth='sm' style={{marginTop: '50px'}} className='TodoDetails'>
                 <Card sx={{ minWidth: 275 }}>
                     <CardActions className='buttonArea'>
-                        <Button color={'primary'} variant='contained' size='small' onClick={() => finishTodo()}>
-                            <Tooltip title='完了'>
-                                <DoneIcon />
-                            </Tooltip>
-                        </Button>
+                        {todoData['is_done'] ? (
+                            <Button color={'primary'} variant='contained' size='small' onClick={() => finishTodo(false)}>
+                                <Tooltip title='未完了'>
+                                    <KeyboardReturnIcon />
+                                </Tooltip>
+                            </Button>
+                        ) : (
+                            <Button color={'primary'} variant='contained' size='small' onClick={() => finishTodo(true)}>
+                                <Tooltip title='完了'>
+                                    <DoneIcon />
+                                </Tooltip>
+                            </Button>
+                        )}
                         <Button color={'primary'} variant='contained' size='small' onClick={() => handleOpen()}>
                             <Tooltip title='編集'>
                                 <EditIcon />

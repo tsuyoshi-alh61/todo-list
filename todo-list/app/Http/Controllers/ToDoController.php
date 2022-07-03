@@ -47,6 +47,7 @@ class ToDoController extends Controller {
         $todo->title = $request->title;
         $todo->dead_line = $request->deadLine;
         $todo->priority = $request->priority;
+        $todo->is_done = $request->is_done;
         $todo->save();
 
         return $todo ? response()->json($todo, 201) : response()->json([], 500);
