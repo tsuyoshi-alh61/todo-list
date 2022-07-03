@@ -14,15 +14,20 @@ import { converDateToString } from '../utility/CommonFunction';
 import { CATEGORY_VALUE } from '../../config/categoryValues';
 
 export default function EditTodo(props) {
-    const { id, title, dead_line, priority } = props;
+    const { id, title, dead_line, priority, editTodo } = props;
+    // DatePickerの表示を日本語に設定
+    registerLocale('ja', ja);
+
+    // 入力項目の初期値
     const initialValues = {
         id: id,
         title: title,
         deadLine: dead_line ?? '',
         priority: priority
     }
+
+    // state定義
     const [inputValues, setInputValues] = useState(initialValues);
-    const { editTodo } = props;
 
     function handleInputChange(e) {
         setInputValues({ ...inputValues, [e.target.id]: e.target.value})
