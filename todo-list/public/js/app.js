@@ -26471,6 +26471,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "sortTodosByAsc": () => (/* binding */ sortTodosByAsc),
 /* harmony export */   "sortTodosByDesc": () => (/* binding */ sortTodosByDesc),
 /* harmony export */   "sortTodoByPriority": () => (/* binding */ sortTodoByPriority),
+/* harmony export */   "sortTodoByIsDone": () => (/* binding */ sortTodoByIsDone),
 /* harmony export */   "defaultSortTodo": () => (/* binding */ defaultSortTodo),
 /* harmony export */   "compareDate": () => (/* binding */ compareDate)
 /* harmony export */ });
@@ -26480,7 +26481,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /**
- * TODO-ID順に昇順ソート
+ * TODOリストをID順に昇順ソート
  */
 
 function sortTodosByAsc(todos) {
@@ -26494,7 +26495,7 @@ function sortTodosByAsc(todos) {
   return todos;
 }
 /**
- * TODO-ID順に降順ソート
+ * TODOリストをID順に降順ソート
  */
 
 function sortTodosByDesc(todos) {
@@ -26508,7 +26509,7 @@ function sortTodosByDesc(todos) {
   return todos;
 }
 /**
- * TODOを優先度高い順にソート
+ * TODOリストを優先度高い順にソート
  */
 
 function sortTodoByPriority(todos) {
@@ -26521,17 +26522,44 @@ function sortTodoByPriority(todos) {
 
   return todos;
 }
-function defaultSortTodo(todos) {
+/**
+ * TODOリストを未完了順にソート
+ */
+
+function sortTodoByIsDone(todos) {
   if (!lodash__WEBPACK_IMPORTED_MODULE_1___default().isEmpty(todos)) {
-    var sortedByDesc = sortTodosByDesc(todos);
-    var sortedByPriority = sortTodoByPriority(sortedByDesc);
-    return sortedByPriority;
+    todos.sort(function (next, current) {
+      return next['is_done'] === current['is_done'] ? 0 : next['is_done'] ? 1 : -1;
+    });
   }
 
   return todos;
 }
+/**
+ * ダッシュボード画面に出力するTODOリストをソート
+ */
+
+function defaultSortTodo(todos) {
+  if (!lodash__WEBPACK_IMPORTED_MODULE_1___default().isEmpty(todos)) {
+    // 降順ソート
+    var sortedByDesc = sortTodosByDesc(todos); // 優先度高い順ソート
+
+    var sortedByPriority = sortTodoByPriority(sortedByDesc); // 未完了
+
+    var sortedByIsDone = sortTodoByIsDone(sortedByPriority);
+    return sortedByIsDone;
+  }
+
+  return todos;
+}
+/**
+ * 入力した日付と現在の日付を比較
+ * ※現在の日付と同じまたは、未来の日付の場合、TRUEを返す
+ * ※現在の日付より過去の日付の場合、FALSEを返す
+ */
+
 function compareDate(targetDate) {
-  // 選択した日付から、年、月、日を抽出
+  // 入力した日付から、年、月、日を抽出
   var targetDateYear = targetDate.getFullYear();
   var targetDateMonth = targetDate.getMonth();
   var targetDateDay = targetDate.getDate(); // 現在の日付から、年、月、日を抽出

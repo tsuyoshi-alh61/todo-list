@@ -2,7 +2,7 @@ import React from "react";
 import _ from 'lodash';
 
 /**
- * TODO-ID順に昇順ソート
+ * TODOリストをID順に昇順ソート
  */
 export function sortTodosByAsc(todos) {
     if(!_.isEmpty(todos)) {
@@ -14,7 +14,7 @@ export function sortTodosByAsc(todos) {
 }
 
 /**
- * TODO-ID順に降順ソート
+ * TODOリストをID順に降順ソート
  */
 export function sortTodosByDesc(todos) {
     if(!_.isEmpty(todos)) {
@@ -26,7 +26,7 @@ export function sortTodosByDesc(todos) {
 }
 
 /**
- * TODOを優先度高い順にソート
+ * TODOリストを優先度高い順にソート
  */
 export function sortTodoByPriority(todos) {
     if(!_.isEmpty(todos)) {
@@ -37,18 +37,43 @@ export function sortTodoByPriority(todos) {
     return todos;
 }
 
-export function defaultSortTodo(todos) {
+/**
+ * TODOリストを未完了順にソート
+ */
+export function sortTodoByIsDone(todos) {
     if(!_.isEmpty(todos)) {
-        let sortedByDesc = sortTodosByDesc(todos);
-        let sortedByPriority = sortTodoByPriority(sortedByDesc);
-        return sortedByPriority;
+        todos.sort((next, current) => {
+            return (next['is_done'] === current['is_done'])? 0 : next['is_done']? 1 : -1;
+        });
     }
 
     return todos;
 }
 
+/**
+ * ダッシュボード画面に出力するTODOリストをソート
+ */
+export function defaultSortTodo(todos) {
+    if(!_.isEmpty(todos)) {
+        // 降順ソート
+        let sortedByDesc = sortTodosByDesc(todos);
+        // 優先度高い順ソート
+        let sortedByPriority = sortTodoByPriority(sortedByDesc);
+        // 未完了
+        let sortedByIsDone = sortTodoByIsDone(sortedByPriority);
+        return sortedByIsDone;
+    }
+
+    return todos;
+}
+
+/**
+ * 入力した日付と現在の日付を比較
+ * ※現在の日付と同じまたは、未来の日付の場合、TRUEを返す
+ * ※現在の日付より過去の日付の場合、FALSEを返す
+ */
 export function compareDate(targetDate) {
-    // 選択した日付から、年、月、日を抽出
+    // 入力した日付から、年、月、日を抽出
     let targetDateYear = targetDate.getFullYear();
     let targetDateMonth = targetDate.getMonth();
     let targetDateDay = targetDate.getDate();
