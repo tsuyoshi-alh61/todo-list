@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
@@ -8,7 +8,6 @@ import Modal from "@material-ui/core/Modal";
 import ToDoSummary from "./TodoSummary";
 import CreateTodoModal from "../modal/CreateTodoModal";
 import CommonLink from "../layout/common/CommonLink";
-import { defaultSortTodo } from './UtilFunction';
 
 const useStyles = makeStyles({
     button: {
@@ -30,13 +29,13 @@ const boxStyle = {
     p: 4,
 };
 
-export default function TodoList({todos = [], ...props}) {
+export default function TodoList({todos, ...props}) {
     const classes = useStyles();
 
     const displayTodos = todos['length'] ? (
         <Box padding="1rem" textAlign="left">
             <Grid container spacing={3}>
-                { defaultSortTodo(todos) && todos.map(todo => {
+                { todos && todos.map(todo => {
                     return (
                         <Grid item xs={12} key={todo['id']}>
                             <CommonLink to={'/todo/' + todo['id']} content={<ToDoSummary todo={todo} />} />
@@ -51,7 +50,7 @@ export default function TodoList({todos = [], ...props}) {
                 まだ登録されたToDoはありません。
             </Typography>
         </Box>
-    )
+    );
 
     return (
         <React.Fragment>

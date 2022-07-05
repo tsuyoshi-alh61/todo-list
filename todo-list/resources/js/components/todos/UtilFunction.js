@@ -1,5 +1,5 @@
 import React from "react";
-import _ from 'lodash';
+import _, { cloneDeep } from 'lodash';
 
 /**
  * TODOリストをID順に昇順ソート
@@ -30,8 +30,10 @@ export function sortTodosByDesc(todos) {
  */
 export function sortTodoByPriority(todos) {
     if(!_.isEmpty(todos)) {
-        todos.sort((next, current) => { return current.priority - next.priority });
-        return todos;
+        return new Promise((resolve, reject) => {
+            todos.sort((next, current) => { return current.priority - next.priority });
+            resolve(todos);
+        })
     }
 
     return todos;
@@ -42,29 +44,63 @@ export function sortTodoByPriority(todos) {
  */
 export function sortTodoByIsDone(todos) {
     if(!_.isEmpty(todos)) {
-        todos.sort((next, current) => {
-            return (next['is_done'] === current['is_done'])? 0 : next['is_done']? 1 : -1;
+        return new Promise((resolve, reject) => {
+            todos.sort((next, current) => {
+                return (next['is_done'] === current['is_done'])? 0 : next['is_done']? 1 : -1;
+            });
+            resolve(todos);
+        })
+    }
+    return todos;
+}
+
+/**
+ * TODOリストを日付が古い順にソート
+ */
+export function sortTodoByDeadline(todos) {
+    if(!_.isEmpty(todos)) {
+        return new Promise((resolve, reject) => {
+            // JavaScrioptがサポートしている最大日時を設定
+            const distantFuture = new Date(8640000000000000);
+            todos.sort(function(next, current){
+                let dateNext = next['dead_line'] ? new Date(next['dead_line']) : distantFuture
+                let dateCurrent = current['dead_line'] ? new Date(current['dead_line']) : distantFuture
+                return (
+                    dateNext.getTime() - dateCurrent.getTime()
+                );
+            });
+            resolve(todos);
         });
     }
-
     return todos;
 }
 
 /**
  * ダッシュボード画面に出力するTODOリストをソート
  */
-export function defaultSortTodo(todos) {
-    if(!_.isEmpty(todos)) {
-        // 降順ソート
-        let sortedByDesc = sortTodosByDesc(todos);
-        // 優先度高い順ソート
-        let sortedByPriority = sortTodoByPriority(sortedByDesc);
-        // 未完了
-        let sortedByIsDone = sortTodoByIsDone(sortedByPriority);
-        return sortedByIsDone;
+export async function defaultSortTodo(todos) {
+    if(_.isEmpty(todos)) {
+        return todos;
     }
 
-    return todos;
+    let copiedTodos = _.cloneDeep(todos);
+    // 優先度の高い順ソート
+    let sortedByPriority = await sortTodoByPriority(copiedTodos)
+    .then((result) => {
+        return result;
+    });
+    // 日付の古い順ソート
+    let sortedByDeadline = await sortTodoByDeadline(sortedByPriority)
+    .then((result) => {
+        return result;
+    });
+    // 未完了昇順ソート
+    let sortedByIsDone = await sortTodoByIsDone(sortedByDeadline)
+    .then((result) => {
+        return result;
+    });
+
+    return sortedByIsDone;
 }
 
 /**

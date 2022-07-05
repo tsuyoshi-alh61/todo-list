@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import DateTimePicker, { registerLocale } from 'react-datepicker';
 import Select from 'react-select';
 import 'react-datepicker/dist/react-datepicker.css';
+import ja from 'date-fns/locale/ja';
 import _ from 'lodash';
 import Box from '@material-ui/core/Box';
 import FormControl from '@material-ui/core/FormControl';
@@ -22,7 +23,7 @@ export default function EditTodo(props) {
     const initialValues = {
         id: id,
         title: title,
-        deadLine: dead_line ?? '',
+        deadLine: handleDeadLine(dead_line),
         priority: priority
     }
 
@@ -57,6 +58,16 @@ export default function EditTodo(props) {
         }
 
         editTodo(copiedInputValues);
+    }
+
+    function handleDeadLine(deadLine) {
+        if(_.isString(deadLine)) {
+            return new Date(deadLine);
+        }
+        if(_.isEmpty(deadLine)) {
+            return null;
+        }
+        return inputValues['deadLine'];
     }
 
     return (

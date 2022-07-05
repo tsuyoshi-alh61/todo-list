@@ -24349,13 +24349,22 @@ module.exports = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "createCookie": () => (/* binding */ createCookie)
+/* harmony export */   "createCookie": () => (/* binding */ createCookie),
+/* harmony export */   "deleteCookie": () => (/* binding */ deleteCookie)
 /* harmony export */ });
 var createCookie = function createCookie(cookie) {
   return function (dispatch, getState) {
     dispatch({
       type: 'CREATE_COOKIE',
       cookie: cookie
+    });
+  };
+};
+var deleteCookie = function deleteCookie() {
+  return function (dispatch, getState) {
+    dispatch({
+      type: 'CREATE_COOKIE',
+      cookie: ''
     });
   };
 };
@@ -24890,9 +24899,7 @@ function Signin(props) {
 
     (0,_apiCaller_auth__WEBPACK_IMPORTED_MODULE_2__.callUserAuthentication)(inputValues).then(function (res) {
       setCookie('name', res.data);
-      props.createCookie({
-        'name': res.data
-      });
+      props.createCookie(res.data);
       history('/');
     })["catch"](function (e) {
       console.log(e);
@@ -25090,13 +25097,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
-/* harmony import */ var react_cookie__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-cookie */ "./node_modules/react-cookie/es6/withCookies.js");
-/* harmony import */ var _todos_TodoList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../todos/TodoList */ "./resources/js/components/todos/TodoList.js");
-/* harmony import */ var _apiCaller_read__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../apiCaller/read */ "./resources/js/apiCaller/read.js");
-/* harmony import */ var _apiCaller_create__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../apiCaller/create */ "./resources/js/apiCaller/create.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var react_cookie__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-cookie */ "./node_modules/react-cookie/es6/withCookies.js");
+/* harmony import */ var _todos_TodoList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../todos/TodoList */ "./resources/js/components/todos/TodoList.js");
+/* harmony import */ var _apiCaller_read__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../apiCaller/read */ "./resources/js/apiCaller/read.js");
+/* harmony import */ var _apiCaller_create__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../apiCaller/create */ "./resources/js/apiCaller/create.js");
+/* harmony import */ var _todos_UtilFunction__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../todos/UtilFunction */ "./resources/js/components/todos/UtilFunction.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -25117,16 +25133,17 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 function Dashboard(props) {
-  var history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useNavigate)();
+  var history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_7__.useNavigate)();
   var cookies = props.cookies; // state定義
 
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
       _useState2 = _slicedToArray(_useState, 2),
       todos = _useState2[0],
       setTodos = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
       _useState4 = _slicedToArray(_useState3, 2),
       open = _useState4[0],
       _setOpen = _useState4[1]; // TODO登録モーダルの開閉処理
@@ -25140,7 +25157,7 @@ function Dashboard(props) {
     return _setOpen(false);
   };
 
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     if (cookies['cookies']['name']) {
       getTodos();
     } else {
@@ -25152,9 +25169,13 @@ function Dashboard(props) {
    */
 
   function getTodos() {
-    (0,_apiCaller_read__WEBPACK_IMPORTED_MODULE_2__.callGetTodoAll)().then(function (res) {
-      setTodos(res.data);
+    (0,_apiCaller_read__WEBPACK_IMPORTED_MODULE_3__.callGetTodoAll)().then(function (res) {
+      callSetTodos(res.data);
     });
+  }
+
+  function callSetTodos(_x) {
+    return _callSetTodos.apply(this, arguments);
   }
   /**
    * TODOを登録
@@ -25162,9 +25183,30 @@ function Dashboard(props) {
    */
 
 
+  function _callSetTodos() {
+    _callSetTodos = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(todos) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return (0,_todos_UtilFunction__WEBPACK_IMPORTED_MODULE_5__.defaultSortTodo)(todos).then(function (result) {
+                setTodos(result);
+              });
+
+            case 2:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+    return _callSetTodos.apply(this, arguments);
+  }
+
   function _addTodo(todo) {
     // Todoを登録するAPI呼び出し
-    (0,_apiCaller_create__WEBPACK_IMPORTED_MODULE_3__.callAddTodoApi)(todo); // モーダルを閉じる
+    (0,_apiCaller_create__WEBPACK_IMPORTED_MODULE_4__.callAddTodoApi)(todo); // モーダルを閉じる
 
     _handleClose(); // 最新のデータを取得
 
@@ -25172,7 +25214,7 @@ function Dashboard(props) {
     getTodos();
   }
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_todos_TodoList__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_todos_TodoList__WEBPACK_IMPORTED_MODULE_2__["default"], {
     todos: todos,
     addTodo: function addTodo(todo) {
       return _addTodo(todo);
@@ -25190,7 +25232,7 @@ function Dashboard(props) {
   });
 }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_cookie__WEBPACK_IMPORTED_MODULE_6__["default"])(Dashboard));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_cookie__WEBPACK_IMPORTED_MODULE_8__["default"])(Dashboard));
 
 /***/ }),
 
@@ -25240,20 +25282,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _SignedOutLinks__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SignedOutLinks */ "./resources/js/components/layout/SignedOutLinks.js");
 /* harmony import */ var _actions_authActions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actions/authActions */ "./resources/js/actions/authActions.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e2) { throw _e2; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e3) { didErr = true; err = _e3; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
 
 
 
@@ -25275,70 +25303,19 @@ var useStyles = (0,_material_ui_core__WEBPACK_IMPORTED_MODULE_7__["default"])(fu
   };
 });
 
-function getCookie() {
-  var cookies = document.cookie; //全てのcookieを取り出して
-
-  var cookiesArray = cookies.split(';'); // ;で分割し配列に
-
-  var _iterator = _createForOfIteratorHelper(cookiesArray),
-      _step;
-
-  try {
-    for (_iterator.s(); !(_step = _iterator.n()).done;) {
-      var c = _step.value;
-      //一つ一つ取り出して
-      var cArray = c.split('='); //さらに=で分割して配列に
-
-      if (cArray[0] == 'name') {
-        // 取り出したいkeyと合致したら
-        var cookieValue = cArray[1];
-        return {
-          'name': cookieValue
-        }; // [key,value] 
-      }
-    }
-  } catch (err) {
-    _iterator.e(err);
-  } finally {
-    _iterator.f();
-  }
-}
-
 function Navbar(props) {
-  var _getCookie;
-
   var cookies = props.cookies;
-
-  var _useSelector = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
-    return state;
-  }),
-      auth = _useSelector.auth;
-
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)((_getCookie = getCookie()) !== null && _getCookie !== void 0 ? _getCookie : {}),
-      _useState2 = _slicedToArray(_useState, 2),
-      cookieState = _useState2[0],
-      setCookieState = _useState2[1];
-
   var classes = useStyles();
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    if (cookies['cookies']['name']) {
+    if (_.isEmpty(props.auth)) {
       props.createCookie(cookies['cookies']['name']);
-      setCookieState(cookies['cookies']['name']);
-    } else {
-      props.createCookie({});
-      setCookieState({});
     }
-  }, [auth.cookie]);
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    var intervalId = setInterval(function () {
-      // redux storeのデータを使って何かする処理
-      // refUsers.currentを参照させる
-      setCookieState(auth.cookie);
-    }, 5000);
-    return function () {
-      clearInterval(intervalId);
-    };
   }, []);
+  var links = !_.isEmpty(props.auth.cookie) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_SignedInLinks__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    styles: 'buttonSpacing'
+  }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_SignedOutLinks__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    styles: 'buttonSpacing'
+  });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_AppBar__WEBPACK_IMPORTED_MODULE_8__["default"], {
     position: "static",
     color: "primary",
@@ -25351,14 +25328,16 @@ function Navbar(props) {
           to: "/",
           content: 'To-Doリスト'
         })
-      }), cookieState ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_SignedInLinks__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        styles: 'buttonSpacing'
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_SignedOutLinks__WEBPACK_IMPORTED_MODULE_4__["default"], {
-        styles: 'buttonSpacing'
-      })]
+      }), links]
     })
   });
 }
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    auth: state.auth
+  };
+};
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
@@ -25368,7 +25347,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   };
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_cookie__WEBPACK_IMPORTED_MODULE_11__["default"])((0,react_redux__WEBPACK_IMPORTED_MODULE_1__.connect)(null, mapDispatchToProps)(Navbar)));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_cookie__WEBPACK_IMPORTED_MODULE_11__["default"])((0,react_redux__WEBPACK_IMPORTED_MODULE_1__.connect)(mapStateToProps, mapDispatchToProps)(Navbar)));
 
 /***/ }),
 
@@ -25423,7 +25402,7 @@ function SignedInLink(props) {
 
   function logoutEvent() {
     removeCookie('name');
-    props.createCookie({});
+    props.deleteCookie();
     history('/signin');
   }
 
@@ -25444,8 +25423,8 @@ function SignedInLink(props) {
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
-    createCookie: function createCookie(cookie) {
-      return dispatch((0,_actions_authActions__WEBPACK_IMPORTED_MODULE_3__.createCookie)(cookie));
+    deleteCookie: function deleteCookie() {
+      return dispatch((0,_actions_authActions__WEBPACK_IMPORTED_MODULE_3__.deleteCookie)());
     }
   };
 };
@@ -25812,16 +25791,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_datepicker__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-datepicker */ "./node_modules/react-datepicker/dist/react-datepicker.min.js");
 /* harmony import */ var react_datepicker__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_datepicker__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var react_select__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-select */ "./node_modules/react-select/dist/react-select.esm.js");
+/* harmony import */ var react_select__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-select */ "./node_modules/react-select/dist/react-select.esm.js");
 /* harmony import */ var react_datepicker_dist_react_datepicker_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-datepicker/dist/react-datepicker.css */ "./node_modules/react-datepicker/dist/react-datepicker.css");
+/* harmony import */ var date_fns_locale_ja__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! date-fns/locale/ja */ "./node_modules/date-fns/esm/locale/ja/index.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _material_ui_core_Box__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/Box */ "./node_modules/@material-ui/core/esm/Box/Box.js");
-/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/FormControl */ "./node_modules/@material-ui/core/esm/FormControl/FormControl.js");
-/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/esm/Typography/Typography.js");
-/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @material-ui/core/TextField */ "./node_modules/@material-ui/core/esm/TextField/TextField.js");
-/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/Button.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/styles/styled.js");
+/* harmony import */ var _material_ui_core_Box__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Box */ "./node_modules/@material-ui/core/esm/Box/Box.js");
+/* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core/FormControl */ "./node_modules/@material-ui/core/esm/FormControl/FormControl.js");
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/esm/Typography/Typography.js");
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @material-ui/core/TextField */ "./node_modules/@material-ui/core/esm/TextField/TextField.js");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/Button.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/styles/styled.js");
 /* harmony import */ var _UtilFunction__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./UtilFunction */ "./resources/js/components/todos/UtilFunction.js");
 /* harmony import */ var _utility_CommonFunction__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utility/CommonFunction */ "./resources/js/components/utility/CommonFunction.js");
 /* harmony import */ var _config_categoryValues__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../config/categoryValues */ "./resources/js/config/categoryValues.js");
@@ -25862,6 +25842,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 function EditTodo(props) {
   var id = props.id,
       title = props.title,
@@ -25869,12 +25850,12 @@ function EditTodo(props) {
       priority = props.priority,
       editTodo = props.editTodo; // DatePickerの表示を日本語に設定
 
-  (0,react_datepicker__WEBPACK_IMPORTED_MODULE_7__.registerLocale)('ja', ja); // 入力項目の初期値
+  (0,react_datepicker__WEBPACK_IMPORTED_MODULE_7__.registerLocale)('ja', date_fns_locale_ja__WEBPACK_IMPORTED_MODULE_8__["default"]); // 入力項目の初期値
 
   var initialValues = {
     id: id,
     title: title,
-    deadLine: dead_line !== null && dead_line !== void 0 ? dead_line : '',
+    deadLine: handleDeadLine(dead_line),
     priority: priority
   }; // state定義
 
@@ -25915,12 +25896,24 @@ function EditTodo(props) {
     editTodo(copiedInputValues);
   }
 
+  function handleDeadLine(deadLine) {
+    if (lodash__WEBPACK_IMPORTED_MODULE_2___default().isString(deadLine)) {
+      return new Date(deadLine);
+    }
+
+    if (lodash__WEBPACK_IMPORTED_MODULE_2___default().isEmpty(deadLine)) {
+      return null;
+    }
+
+    return inputValues['deadLine'];
+  }
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     className: "createTodo",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_9__["default"], {
       component: "form",
       autoComplete: "off",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_10__["default"], {
         variant: "h5",
         component: "h2",
         children: "TODO\u767B\u9332\u753B\u9762"
@@ -25940,14 +25933,14 @@ function EditTodo(props) {
           selected: inputValues['deadLine'],
           minDate: new Date()
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_10__["default"], {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_11__["default"], {
         fullWidth: true,
         variant: "standard",
         margin: "dense",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
           children: "\u512A\u5148\u5EA6"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_select__WEBPACK_IMPORTED_MODULE_11__["default"], {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_select__WEBPACK_IMPORTED_MODULE_12__["default"], {
             defaultValue: _config_categoryValues__WEBPACK_IMPORTED_MODULE_5__.CATEGORY_VALUE.TODO_PRIORITY.OPTIONS.find(function (element) {
               return element['value'] == inputValues['priority'];
             }),
@@ -25959,10 +25952,10 @@ function EditTodo(props) {
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
         className: "buttonArea",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_10__["default"], {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_11__["default"], {
           variant: "standard",
           margin: "dense",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_12__["default"], {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_13__["default"], {
             color: "primary",
             variant: "contained",
             onClick: handleSubmit,
@@ -25977,7 +25970,7 @@ function EditTodo(props) {
 function MoldTitleElement(_ref) {
   var title = _ref.title,
       event = _ref.event;
-  var Title = (0,_material_ui_core__WEBPACK_IMPORTED_MODULE_13__["default"])('div')(function (_ref2) {
+  var Title = (0,_material_ui_core__WEBPACK_IMPORTED_MODULE_14__["default"])('div')(function (_ref2) {
     var theme = _ref2.theme;
     return {
       marginTop: '16px'
@@ -25986,11 +25979,11 @@ function MoldTitleElement(_ref) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(Title, {
       children: "\u30BF\u30A4\u30C8\u30EB"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_11__["default"], {
       variant: "standard",
       margin: "dense",
       fullWidth: true,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_14__["default"], {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_15__["default"], {
         id: "title",
         type: "text",
         size: "small",
@@ -26299,17 +26292,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ TodoList)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/makeStyles.js");
-/* harmony import */ var _material_ui_core_Box__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Box */ "./node_modules/@material-ui/core/esm/Box/Box.js");
-/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/Button.js");
-/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/Grid.js");
-/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/esm/Typography/Typography.js");
-/* harmony import */ var _material_ui_core_Modal__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core/Modal */ "./node_modules/@material-ui/core/esm/Modal/Modal.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/makeStyles.js");
+/* harmony import */ var _material_ui_core_Box__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Box */ "./node_modules/@material-ui/core/esm/Box/Box.js");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/Button.js");
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/Grid.js");
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/esm/Typography/Typography.js");
+/* harmony import */ var _material_ui_core_Modal__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/Modal */ "./node_modules/@material-ui/core/esm/Modal/Modal.js");
 /* harmony import */ var _TodoSummary__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TodoSummary */ "./resources/js/components/todos/TodoSummary.js");
 /* harmony import */ var _modal_CreateTodoModal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../modal/CreateTodoModal */ "./resources/js/components/modal/CreateTodoModal.js");
 /* harmony import */ var _layout_common_CommonLink__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../layout/common/CommonLink */ "./resources/js/components/layout/common/CommonLink.js");
-/* harmony import */ var _UtilFunction__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./UtilFunction */ "./resources/js/components/todos/UtilFunction.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 var _excluded = ["todos"];
 
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
@@ -26328,8 +26320,7 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 
 
 
-
-var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_6__["default"])({
+var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["default"])({
   button: {
     '&:hover': {
       backgroundColor: '#6666ff'
@@ -26348,58 +26339,57 @@ var boxStyle = {
   p: 4
 };
 function TodoList(_ref) {
-  var _ref$todos = _ref.todos,
-      todos = _ref$todos === void 0 ? [] : _ref$todos,
+  var todos = _ref.todos,
       props = _objectWithoutProperties(_ref, _excluded);
 
   var classes = useStyles();
-  var displayTodos = todos['length'] ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  var displayTodos = todos['length'] ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_6__["default"], {
     padding: "1rem",
     textAlign: "left",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_7__["default"], {
       container: true,
       spacing: 3,
-      children: (0,_UtilFunction__WEBPACK_IMPORTED_MODULE_4__.defaultSortTodo)(todos) && todos.map(function (todo) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      children: todos && todos.map(function (todo) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_7__["default"], {
           item: true,
           xs: 12,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_layout_common_CommonLink__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_layout_common_CommonLink__WEBPACK_IMPORTED_MODULE_3__["default"], {
             to: '/todo/' + todo['id'],
-            content: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_TodoSummary__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            content: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_TodoSummary__WEBPACK_IMPORTED_MODULE_1__["default"], {
               todo: todo
             })
           })
         }, todo['id']);
       })
     })
-  }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_6__["default"], {
     padding: "2rem",
     textAlign: "center",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_8__["default"], {
       variant: "subtitle1",
       gutterBottom: true,
       children: "\u307E\u3060\u767B\u9332\u3055\u308C\u305FToDo\u306F\u3042\u308A\u307E\u305B\u3093\u3002"
     })
   });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_6__["default"], {
       padding: "2rem",
       textAlign: "center",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_10__["default"], {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_9__["default"], {
         className: classes.button,
         variant: "contained",
         color: "primary",
         onClick: props['handleOpen'],
         children: "TODO\u3092\u767B\u9332\u3059\u308B"
       })
-    }), displayTodos, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_material_ui_core_Modal__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    }), displayTodos, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_Modal__WEBPACK_IMPORTED_MODULE_10__["default"], {
       open: props['open'],
       onClose: props['handleClose'],
       "aria-labelledby": "modal-modal-title",
       "aria-describedby": "modal-modal-description",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_6__["default"], {
         sx: boxStyle,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_modal_CreateTodoModal__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_modal_CreateTodoModal__WEBPACK_IMPORTED_MODULE_2__["default"], {
           addTodo: props['addTodo']
         })
       })
@@ -26421,11 +26411,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ ToDoSummary)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _material_ui_core_Box__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Box */ "./node_modules/@material-ui/core/esm/Box/Box.js");
-/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Card */ "./node_modules/@material-ui/core/esm/Card/Card.js");
-/* harmony import */ var _material_ui_core_CardContent__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/CardContent */ "./node_modules/@material-ui/core/esm/CardContent/CardContent.js");
-/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/esm/Typography/Typography.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core_Box__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Box */ "./node_modules/@material-ui/core/esm/Box/Box.js");
+/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Card */ "./node_modules/@material-ui/core/esm/Card/Card.js");
+/* harmony import */ var _material_ui_core_CardContent__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/CardContent */ "./node_modules/@material-ui/core/esm/CardContent/CardContent.js");
+/* harmony import */ var _material_ui_core_CardActions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/CardActions */ "./node_modules/@material-ui/core/esm/CardActions/CardActions.js");
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/esm/Typography/Typography.js");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/Button.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
 
 
 
@@ -26434,28 +26432,64 @@ __webpack_require__.r(__webpack_exports__);
 
 function ToDoSummary(props) {
   var todo = props.todo;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_3__["default"], {
     sx: {
       minWidth: 200,
       maxWidth: 640,
       margin: 'auto'
     },
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core_CardContent__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core_CardContent__WEBPACK_IMPORTED_MODULE_5__["default"], {
         style: {
-          paddingBottom: 16
+          paddingBottom: 0
         },
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_6__["default"], {
           variant: "h5",
           component: "div",
-          children: todo['is_done'] ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("strike", {
+          children: todo['is_done'] ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("strike", {
             children: todo['title']
           }) : todo['title']
         })
-      })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core_CardActions__WEBPACK_IMPORTED_MODULE_7__["default"], {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(DeadlineAlert, {
+          todo: todo
+        })
+      })]
     })
   });
 }
+
+function DeadlineAlert(_ref) {
+  var todo = _ref.todo;
+  var dateNow = new Date();
+  var dateTodo = new Date(todo['dead_line']);
+
+  if (lodash__WEBPACK_IMPORTED_MODULE_1___default().isEmpty(todo['dead_line'])) {
+    return null;
+  }
+
+  var dateToDisplay = todo['dead_line'].slice(0, -3);
+
+  if (dateNow.getDate() == dateTodo.getDate()) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      color: "primary",
+      children: "".concat(dateToDisplay, " : \u671F\u9650\u304C\u8FD1\u3044\u3067\u3059")
+    });
+  }
+
+  if (dateTodo < dateNow) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      color: "secondary",
+      children: "".concat(dateToDisplay, " : \u671F\u9650\u304C\u904E\u304E\u3066\u3044\u307E\u3059")
+    });
+  }
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    children: dateToDisplay
+  });
+}
+
+;
 
 /***/ }),
 
@@ -26472,12 +26506,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "sortTodosByDesc": () => (/* binding */ sortTodosByDesc),
 /* harmony export */   "sortTodoByPriority": () => (/* binding */ sortTodoByPriority),
 /* harmony export */   "sortTodoByIsDone": () => (/* binding */ sortTodoByIsDone),
+/* harmony export */   "sortTodoByDeadline": () => (/* binding */ sortTodoByDeadline),
 /* harmony export */   "defaultSortTodo": () => (/* binding */ defaultSortTodo),
 /* harmony export */   "compareDate": () => (/* binding */ compareDate)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_2__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 
 
 /**
@@ -26485,7 +26528,7 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 function sortTodosByAsc(todos) {
-  if (!lodash__WEBPACK_IMPORTED_MODULE_1___default().isEmpty(todos)) {
+  if (!lodash__WEBPACK_IMPORTED_MODULE_2___default().isEmpty(todos)) {
     todos.sort(function (next, current) {
       return next.id - current.id;
     });
@@ -26499,7 +26542,7 @@ function sortTodosByAsc(todos) {
  */
 
 function sortTodosByDesc(todos) {
-  if (!lodash__WEBPACK_IMPORTED_MODULE_1___default().isEmpty(todos)) {
+  if (!lodash__WEBPACK_IMPORTED_MODULE_2___default().isEmpty(todos)) {
     todos.sort(function (next, current) {
       return current.id - next.id;
     });
@@ -26513,11 +26556,13 @@ function sortTodosByDesc(todos) {
  */
 
 function sortTodoByPriority(todos) {
-  if (!lodash__WEBPACK_IMPORTED_MODULE_1___default().isEmpty(todos)) {
-    todos.sort(function (next, current) {
-      return current.priority - next.priority;
+  if (!lodash__WEBPACK_IMPORTED_MODULE_2___default().isEmpty(todos)) {
+    return new Promise(function (resolve, reject) {
+      todos.sort(function (next, current) {
+        return current.priority - next.priority;
+      });
+      resolve(todos);
     });
-    return todos;
   }
 
   return todos;
@@ -26527,9 +26572,32 @@ function sortTodoByPriority(todos) {
  */
 
 function sortTodoByIsDone(todos) {
-  if (!lodash__WEBPACK_IMPORTED_MODULE_1___default().isEmpty(todos)) {
-    todos.sort(function (next, current) {
-      return next['is_done'] === current['is_done'] ? 0 : next['is_done'] ? 1 : -1;
+  if (!lodash__WEBPACK_IMPORTED_MODULE_2___default().isEmpty(todos)) {
+    return new Promise(function (resolve, reject) {
+      todos.sort(function (next, current) {
+        return next['is_done'] === current['is_done'] ? 0 : next['is_done'] ? 1 : -1;
+      });
+      resolve(todos);
+    });
+  }
+
+  return todos;
+}
+/**
+ * TODOリストを日付が古い順にソート
+ */
+
+function sortTodoByDeadline(todos) {
+  if (!lodash__WEBPACK_IMPORTED_MODULE_2___default().isEmpty(todos)) {
+    return new Promise(function (resolve, reject) {
+      // JavaScrioptがサポートしている最大日時を設定
+      var distantFuture = new Date(8640000000000000);
+      todos.sort(function (next, current) {
+        var dateNext = next['dead_line'] ? new Date(next['dead_line']) : distantFuture;
+        var dateCurrent = current['dead_line'] ? new Date(current['dead_line']) : distantFuture;
+        return dateNext.getTime() - dateCurrent.getTime();
+      });
+      resolve(todos);
     });
   }
 
@@ -26539,24 +26607,64 @@ function sortTodoByIsDone(todos) {
  * ダッシュボード画面に出力するTODOリストをソート
  */
 
-function defaultSortTodo(todos) {
-  if (!lodash__WEBPACK_IMPORTED_MODULE_1___default().isEmpty(todos)) {
-    // 降順ソート
-    var sortedByDesc = sortTodosByDesc(todos); // 優先度高い順ソート
-
-    var sortedByPriority = sortTodoByPriority(sortedByDesc); // 未完了
-
-    var sortedByIsDone = sortTodoByIsDone(sortedByPriority);
-    return sortedByIsDone;
-  }
-
-  return todos;
+function defaultSortTodo(_x) {
+  return _defaultSortTodo.apply(this, arguments);
 }
 /**
  * 入力した日付と現在の日付を比較
  * ※現在の日付と同じまたは、未来の日付の場合、TRUEを返す
  * ※現在の日付より過去の日付の場合、FALSEを返す
  */
+
+function _defaultSortTodo() {
+  _defaultSortTodo = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(todos) {
+    var copiedTodos, sortedByPriority, sortedByDeadline, sortedByIsDone;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            if (!lodash__WEBPACK_IMPORTED_MODULE_2___default().isEmpty(todos)) {
+              _context.next = 2;
+              break;
+            }
+
+            return _context.abrupt("return", todos);
+
+          case 2:
+            copiedTodos = lodash__WEBPACK_IMPORTED_MODULE_2___default().cloneDeep(todos); // 優先度の高い順ソート
+
+            _context.next = 5;
+            return sortTodoByPriority(copiedTodos).then(function (result) {
+              return result;
+            });
+
+          case 5:
+            sortedByPriority = _context.sent;
+            _context.next = 8;
+            return sortTodoByDeadline(sortedByPriority).then(function (result) {
+              return result;
+            });
+
+          case 8:
+            sortedByDeadline = _context.sent;
+            _context.next = 11;
+            return sortTodoByIsDone(sortedByDeadline).then(function (result) {
+              return result;
+            });
+
+          case 11:
+            sortedByIsDone = _context.sent;
+            return _context.abrupt("return", sortedByIsDone);
+
+          case 13:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+  return _defaultSortTodo.apply(this, arguments);
+}
 
 function compareDate(targetDate) {
   // 入力した日付から、年、月、日を抽出
@@ -26607,10 +26715,14 @@ var converDateToString = function converDateToString(date) {
     var year_str = date.getFullYear();
     var month_str = 1 + date.getMonth();
     var day_str = date.getDate();
-    var format_str = 'YYYY-MM-DD';
+    var hour_str = date.getHours();
+    var mins_str = date.getMinutes();
+    var format_str = 'YYYY-MM-DD hh:mm';
     format_str = format_str.replace(/YYYY/g, year_str);
     format_str = format_str.replace(/MM/g, month_str);
     format_str = format_str.replace(/DD/g, day_str);
+    format_str = format_str.replace(/hh/g, hour_str);
+    format_str = format_str.replace(/mm/g, mins_str);
     return format_str;
   }
 
@@ -26653,9 +26765,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-var initState = {
-  cookie: {}
-};
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var initState = {};
 
 var authReducer = function authReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initState;
@@ -26663,11 +26779,18 @@ var authReducer = function authReducer() {
 
   switch (action.type) {
     case 'CREATE_COOKIE':
-      state.cookie = action.cookie;
+      return _objectSpread(_objectSpread({}, state), {}, {
+        cookie: action.cookie
+      });
+
+    case 'DELETE_COOKIE':
+      return _objectSpread(_objectSpread({}, state), {}, {
+        cookie: action.cookie
+      });
+
+    default:
       return state;
   }
-
-  return state;
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (authReducer);

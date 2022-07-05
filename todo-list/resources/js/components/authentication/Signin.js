@@ -29,7 +29,7 @@ function Signin(props) {
         callUserAuthentication(inputValues)
         .then(res => {
             setCookie('name', res.data);
-            props.createCookie({'name': res.data});
+            props.createCookie(res.data);
             history('/');
         })
         .catch(e => {

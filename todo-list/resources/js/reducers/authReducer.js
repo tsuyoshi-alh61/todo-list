@@ -1,14 +1,21 @@
-const initState = {
-    cookie: {}
-};
+const initState = {};
 
 const authReducer = (state = initState, action) => {
     switch(action.type) {
         case 'CREATE_COOKIE':
-            state.cookie = action.cookie;
+            return {
+                ...state,
+                cookie: action.cookie
+            };
+        case 'DELETE_COOKIE':
+            return {
+                ...state,
+                cookie: action.cookie
+            };
+        default:
             return state;
+
     }
-    return state;
 };
 
 export default authReducer;

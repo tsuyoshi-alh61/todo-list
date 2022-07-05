@@ -4,6 +4,7 @@ import { withCookies } from "react-cookie";
 import TodoList from '../todos/TodoList';
 import { callGetTodoAll } from '../../apiCaller/read';
 import { callAddTodoApi } from '../../apiCaller/create';
+import { defaultSortTodo } from '../todos/UtilFunction';
 
 function Dashboard(props) {
     const history = useNavigate();
@@ -32,7 +33,13 @@ function Dashboard(props) {
     function getTodos() {
         callGetTodoAll()
         .then(res => {
-            setTodos(res.data)
+            callSetTodos(res.data);
+        })
+    }
+
+    async function callSetTodos(todos) {
+        await defaultSortTodo(todos).then(result => {
+            setTodos(result);
         })
     }
 

@@ -16,45 +16,21 @@ const useStyles = makeStyles(() => ({
     }
 }));
 
-function getCookie() {
-    var cookies = document.cookie; //全てのcookieを取り出して
-    var cookiesArray = cookies.split(';'); // ;で分割し配列に
-
-    for(var c of cookiesArray){ //一つ一つ取り出して
-        var cArray = c.split('='); //さらに=で分割して配列に
-        if( cArray[0] == 'name'){ // 取り出したいkeyと合致したら
-            let cookieValue = cArray[1]
-            return { 'name': cookieValue};  // [key,value] 
-        }
-    }
-}
-
 function Navbar(props) {
     const { cookies } = props;
-    const { auth } = useSelector(state => state);
-    const [ cookieState, setCookieState ] = useState(getCookie() ?? {});
     const classes = useStyles();
 
     useEffect(() => {
-        if(cookies['cookies']['name']) {
+        if(_.isEmpty(props.auth)) {
             props.createCookie(cookies['cookies']['name']);
-            setCookieState(cookies['cookies']['name']);
-        } else {
-            props.createCookie({});
-            setCookieState({});
         }
-    }, [auth.cookie]);
+    }, [])
 
-    useEffect(() => {
-        const intervalId = setInterval(() => {
-            // redux storeのデータを使って何かする処理
-            // refUsers.currentを参照させる
-            setCookieState(auth.cookie);
-        }, 5000);
-        return function () {
-          clearInterval(intervalId);
-        };
-    }, []);
+    const links = !_.isEmpty(props.auth.cookie) ? (
+        <SignedInLinks styles={'buttonSpacing'} />
+    ) : (
+        <SignedOutLinks styles={'buttonSpacing'} />
+    );
 
     return (
         <AppBar position='static' color='primary'>
@@ -62,14 +38,16 @@ function Navbar(props) {
                 <Typography variant='h6' component='div' className={classes.root}>
                     <CommonLink to='/' content={'To-Doリスト'}/>
                 </Typography>
-                {cookieState ? (
-                    <SignedInLinks styles={'buttonSpacing'} />
-                ) : (
-                    <SignedOutLinks styles={'buttonSpacing'} />
-                )}
+                {links}
             </Toolbar>
         </AppBar>
     )
+}
+
+const mapStateToProps = (state) => {
+    return{
+        auth: state.auth
+    }
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -78,4 +56,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default withCookies(connect(null, mapDispatchToProps)(Navbar));
+export default withCookies(connect(mapStateToProps, mapDispatchToProps)(Navbar));

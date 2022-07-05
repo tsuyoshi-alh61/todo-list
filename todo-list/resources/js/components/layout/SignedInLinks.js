@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { connect } from "react-redux";
 import Button from '@material-ui/core/Button';
 import CommonLink from './common/CommonLink';
-import { createCookie } from '../../actions/authActions';
+import { deleteCookie } from '../../actions/authActions';
 
 function SignedInLink(props) {
     const history = useNavigate();
@@ -12,7 +12,7 @@ function SignedInLink(props) {
 
     function logoutEvent() {
         removeCookie('name');
-        props.createCookie({});
+        props.deleteCookie();
         history('/signin');
     }
 
@@ -27,7 +27,7 @@ function SignedInLink(props) {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        createCookie: (cookie) => dispatch(createCookie(cookie))
+        deleteCookie: () => dispatch(deleteCookie())
     }
 }
 
