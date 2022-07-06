@@ -24406,7 +24406,7 @@ function _callUserAuthentication() {
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_2___default().post('http://127.0.0.1:8000/api/user/login', user);
+            return axios__WEBPACK_IMPORTED_MODULE_2___default().post(window.location.origin + '/api/user/login', user);
 
           case 2:
             return _context.abrupt("return", _context.sent);
@@ -24464,7 +24464,7 @@ function _callAddTodoApi() {
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_2___default().post('http://127.0.0.1:8000/api/todo/post', todo).then(function (res) {
+            return axios__WEBPACK_IMPORTED_MODULE_2___default().post(window.location.origin + '/api/todo/post', todo).then(function (res) {
               console.log(res);
               console.log("Todoの登録成功");
             })["catch"](function (e) {
@@ -24492,7 +24492,7 @@ function _callRegisterUserApi() {
         switch (_context2.prev = _context2.next) {
           case 0:
             _context2.next = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_2___default().post('http://127.0.0.1:8000/api/user/register', user);
+            return axios__WEBPACK_IMPORTED_MODULE_2___default().post(window.location.origin + '/api/user/register', user);
 
           case 2:
             return _context2.abrupt("return", _context2.sent);
@@ -24549,7 +24549,7 @@ function _callDeleteTodoApi() {
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_2___default()["delete"]('http://127.0.0.1:8000/api/todo/delete', {
+            return axios__WEBPACK_IMPORTED_MODULE_2___default()["delete"](window.location.origin + '/api/todo/delete', {
               'data': todo
             }).then(function (res) {
               console.log(res);
@@ -24606,7 +24606,7 @@ function _callGetTodoAll() {
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_2___default().get('http://127.0.0.1:8000/api/todo/all');
+            return axios__WEBPACK_IMPORTED_MODULE_2___default().get(window.location.origin + '/api/todo/all');
 
           case 2:
             return _context.abrupt("return", _context.sent);
@@ -24632,7 +24632,7 @@ function _callGetTodoByIdApi() {
         switch (_context2.prev = _context2.next) {
           case 0:
             _context2.next = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_2___default().get('http://127.0.0.1:8000/api/todo/' + id);
+            return axios__WEBPACK_IMPORTED_MODULE_2___default().get(window.location.origin + '/api/todo/' + id);
 
           case 2:
             return _context2.abrupt("return", _context2.sent);
@@ -24689,7 +24689,7 @@ function _callUpdateTodo() {
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_2___default().post('http://127.0.0.1:8000/api/todo/update', todo).then(function (res) {
+            return axios__WEBPACK_IMPORTED_MODULE_2___default().post(window.location.origin + '/api/todo/update', todo).then(function (res) {
               console.log(res);
               console.log("Success");
             })["catch"](function (e) {

@@ -3,9 +3,9 @@ import axios from "axios";
 
 
 export async function callGetTodoAll() {
-    return await axios.get('http://127.0.0.1:8000/api/todo/all');
+    return await axios.get(window.location.origin + '/api/todo/all');
 }
 
 export async function callGetTodoByIdApi(id) {
-    return await axios.get('http://127.0.0.1:8000/api/todo/' + id);
+    return await axios.get(window.location.origin + '/api/todo/' + id);
 }
