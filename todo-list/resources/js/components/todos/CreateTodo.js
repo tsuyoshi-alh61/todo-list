@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { withCookies } from "react-cookie";
 import Select from 'react-select';
 import DateTimePicker, { registerLocale } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -13,12 +14,15 @@ import { styled } from '@material-ui/core';
 import { converDateToString } from '../utility/CommonFunction';
 import { CATEGORY_VALUE } from '../../config/categoryValues';
 
-export default function CreateTodo(props) {
+function CreateTodo(props) {
     // DatePickerの表示を日本語に設定
     registerLocale('ja', ja);
 
+    const { cookies } = props;
+
     // 入力項目の初期値
     const initialValues = {
+        userId: cookies['cookies']['id'] ?? '',
         title: '',
         deadLine: '',
         priority: 2
@@ -104,6 +108,8 @@ export default function CreateTodo(props) {
         </div>
     )
 }
+
+export default withCookies(CreateTodo);
 
 function MoldTitleElement({title, event}) {
     const Title = styled('div')(({ theme }) => ({

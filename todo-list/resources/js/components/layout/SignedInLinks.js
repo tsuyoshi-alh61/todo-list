@@ -12,6 +12,7 @@ function SignedInLink(props) {
 
     function logoutEvent() {
         removeCookie('name');
+        removeCookie('id');
         props.deleteCookie();
         history('/signin');
     }
@@ -19,7 +20,7 @@ function SignedInLink(props) {
     return (
         <React.Fragment>
             <Button color='inherit' variant='outlined' className={props['styles']} onClick={() => logoutEvent()}>
-                <CommonLink content={'ログアウト'}/>
+                <CommonLink content={'サインアウト'}/>
             </Button>
         </React.Fragment>
     )

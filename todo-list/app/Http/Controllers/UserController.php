@@ -12,8 +12,8 @@ class UserController extends Controller {
         if(is_null($user)) {
             return response()->json('User does not exist', 500);
         }
-
-        return response()->json($user->name, 201);
+        $response = ['id' => $user->id, 'name' => $user->name];
+        return response()->json($response, 201);
     }
 
     /**
@@ -21,11 +21,13 @@ class UserController extends Controller {
      */
     public function registerUser(Request $request) {
         $user = new User();
+        $user->name = $request->name;
         $user->email = $request->email;
         $user->password = $request->password;
         $user->save();
 
-        return $user ? response()->json($user, 201) : response()->json([], 500);
+        $response = ['id' => $user->id, 'name' => $user->name];
+        return $user ? response()->json($response, 201) : response()->json([], 500);
     }
 
     public function getUser(Request $request) {

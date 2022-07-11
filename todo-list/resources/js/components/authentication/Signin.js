@@ -28,8 +28,9 @@ function Signin(props) {
         // ユーザー認証API呼び出し
         callUserAuthentication(inputValues)
         .then(res => {
-            setCookie('name', res.data);
-            props.createCookie(res.data);
+            setCookie('name', res.data.name);
+            setCookie('id', res.data.id);
+            props.createCookie(res.data.name);
             history('/');
         })
         .catch(e => {

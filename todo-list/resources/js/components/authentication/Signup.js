@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useCookies } from "react-cookie";
+import { connect } from "react-redux";
 import Box from '@material-ui/core/Box';
 import FormControl from '@material-ui/core/FormControl';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { callRegisterUserApi } from '../../apiCaller/create';
+import { createCookie } from '../../actions/authActions';
 
-export default function SignUp() {
+function SignUp(props) {
     const history = useNavigate();
+    const [cookies, setCookie] = useCookies();
     const [inputValues, setInputValues] = useState({
+        name: '',
         email: '',
         password: ''
     })
@@ -20,10 +25,12 @@ export default function SignUp() {
 
     function handleSubmit(e) {
         e.preventDefault();
+
         callRegisterUserApi(inputValues)
         .then(res => {
-            console.log(res);
-            console.log('ユーザー登録成功');
+            setCookie('name', res.data.name);
+            setCookie('id', res.data.id);
+            props.createCookie(res.data.name);
             history('/');
         })
         .catch(e => {
@@ -40,6 +47,16 @@ export default function SignUp() {
                 <Typography variant="h5" component="h2">
                     サインアップ画面
                 </Typography>
+                <FormControl variant="standard" margin="dense">
+                    <TextField
+                        sx={{ m: 2 }}
+                        id='name'
+                        label='ユーザー名'
+                        type='text'
+                        defaultValue={inputValues.name}
+                        onChange={handleInputChange}
+                    />
+                </FormControl>
                 <FormControl variant="standard" margin="dense">
                     <TextField
                         sx={{ m: 2 }}
@@ -66,3 +83,11 @@ export default function SignUp() {
         </div>
     )
 }
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        createCookie: (cookie) => dispatch(createCookie(cookie))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(SignUp);

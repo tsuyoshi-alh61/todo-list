@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector, connect } from 'react-redux';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 import { withCookies } from "react-cookie";
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';

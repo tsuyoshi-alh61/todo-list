@@ -21,7 +21,7 @@ function Dashboard(props) {
 
     useEffect(() => {
         if(cookies['cookies']['name']) {
-            getTodos();
+            getTodos(cookies['cookies']['id']);
         } else {
             history('/signin');
         }
@@ -30,8 +30,8 @@ function Dashboard(props) {
     /**
      * TODOを全件取得
      */
-    function getTodos() {
-        callGetTodoAll()
+    function getTodos(userId) {
+        callGetTodoAll(userId)
         .then(res => {
             callSetTodos(res.data);
         })
@@ -53,7 +53,7 @@ function Dashboard(props) {
         // モーダルを閉じる
         handleClose();
         // 最新のデータを取得
-        getTodos();
+        getTodos(cookies['cookies']['id']);
     }
 
     return (

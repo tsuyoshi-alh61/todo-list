@@ -11,8 +11,8 @@ class ToDoController extends Controller {
      * 
      * @return \Illuminate\Support\Collection
      */
-    public function getTodos() {
-        return Todo::orderByDesc('id')->get();
+    public function getTodos(Request $request) {
+        return Todo::where('user_id', $request->user_id)->orderByDesc('id')->get();
     }
 
     /**
@@ -29,6 +29,7 @@ class ToDoController extends Controller {
      */
     public function postTodo(Request $request) {
         $todo = new Todo;
+        $todo->user_id = $request->userId;
         $todo->title = $request->title;
         $todo->dead_line = $request->dead_line;
         $todo->priority = $request->priority;

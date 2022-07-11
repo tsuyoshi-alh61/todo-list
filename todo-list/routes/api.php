@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 /**
  * 
  */
-Route::get('/todo/all', 'ToDoController@getTodos');
+Route::get('/todo/all/{user_id}', 'ToDoController@getTodos');
 Route::get('/todo/{id}', 'ToDoController@getTodoById');
 Route::post('/todo/post', 'ToDoController@postTodo');
 Route::post('/todo/update', 'ToDoController@updateTodo');
@@ -27,7 +27,7 @@ Route::delete('/todo/delete', 'ToDoController@deleteTodo');
  * 
  */
 Route::post('/user/register', 'UserController@registerUser');
-Route::post('/user/login', 'UserController@userValidates');
+Route::post('/user/signin', 'UserController@userValidates');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

@@ -9,7 +9,7 @@ export default function SignedOutLinks({styles}) {
                 <CommonLink to='/signup' content={'サインアップ'}/>
             </Button>
             <Button color='inherit' variant='outlined' className={styles}>
-                <CommonLink to='/signin' content={'ログイン'}/>
+                <CommonLink to='/signin' content={'サインイン'}/>
             </Button>
         </React.Fragment>
     )
